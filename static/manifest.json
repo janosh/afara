@@ -1,0 +1,15 @@
+{
+  "background_color": "#ffffff",
+  "display": "minimal-ui",
+  "icons": [
+    {
+      "sizes": "any",
+      "src": "favicon.svg",
+      "type": "image/svg"
+    }
+  ],
+  "name": "Afara e.V.",
+  "short_name": "Afara",
+  "start_url": "/",
+  "theme_color": "#003056"
+}
