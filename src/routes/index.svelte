@@ -14,14 +14,15 @@
   export let page, yaml
 
   let windowWidth
-
-  const sizes = [{ width: 400 }, { width: 800 }]
 </script>
 
 <h1>Afara e.V.</h1>
 <div class="grid">
-  {#each yaml.images.slice(0, windowWidth > 800 ? 9 : windowWidth < 500 ? 3 : 6) as { src, alt }, idx}
-    <Img {src} {alt} {sizes} pictureStyle="grid-area: img{idx + 1};" />
+  {#each yaml.images.slice(0, windowWidth > 800 ? 9 : windowWidth < 500 ? 3 : 6) as img, idx}
+    <Img
+      {...img}
+      sizes={[{ w: 400 }, { w: 800 }]}
+      pictureStyle="grid-area: img{idx + 1};" />
   {/each}
   {#each Object.values(yaml.text) as text, idx}
     <div style="grid-area: txt{idx + 1};">

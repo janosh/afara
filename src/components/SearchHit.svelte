@@ -10,7 +10,7 @@
 <div>
   {#if cover.src}
     <a href={slug}>
-      <Img {...cover} sizes={[{ width: 150 }]} />
+      <Img {...cover} sizes={[{ w: 150 }]} />
     </a>
   {/if}
   <h3>
