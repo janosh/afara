@@ -15,8 +15,7 @@ const keys = [
 
 const session = Object.fromEntries(keys.map((key) => [key, process.env[key]]))
 
-const { PORT, NODE_ENV } = process.env
-const dev = NODE_ENV === `development`
+const dev = session.NODE_ENV === `development`
 
 const { CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_SPACE_ID } = process.env
 const ctfGqlUrl = `https://graphql.contentful.com/content/v1/spaces/`
@@ -28,7 +27,7 @@ polka()
     sirv(`static`, { dev }),
     sapper.middleware({ session: () => session })
   )
-  .listen(PORT, (err) => {
+  .listen(process.env.PORT, (err) => {
     // eslint-disable-next-line no-console
     if (err) console.log(`error`, err)
   })

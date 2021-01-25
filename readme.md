@@ -8,7 +8,7 @@
 
 <h3 align="center">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2bcf7f93-7c33-40f4-9843-bbbf22ea213b/deploy-status)](https://app.netlify.com/sites/afara-svelte/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/209f70e1-0a07-4d82-b642-55c77f2af40f/deploy-status)](https://app.netlify.com/sites/afara-svelte/deploys)
 [![CI](https://github.com/janosh/afara-svelte/workflows/CI/badge.svg)](https://github.com/janosh/afara-svelte/actions)
 [![License](https://img.shields.io/github/license/janosh/afara-svelte?label=License)](/license)
 ![GitHub repo size](https://img.shields.io/github/repo-size/janosh/afara-svelte?label=Repo+Size)
@@ -27,7 +27,7 @@ Running this site locally requires [`git`](https://git-scm.com) and [`yarn`](htt
 1. Clone the repo and change into its directory.
 
    ```sh
-   git clone https://github.com/janosh/afara-svelte && website
+   git clone https://github.com/janosh/afara-svelte && cd afara-svelte
    ```
 
 2. (optional) Setup [`git` hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) by setting `core.hooksPath` and granting execute permission.

@@ -33,6 +33,25 @@ export async function searchStringInContentType(
   console.log(`items of type ${contentType} containing ${searchTerm}:`, items)
 }
 
+export async function replaceStringInContentType(
+  searchTerm = process.argv[2],
+  contentType = process.argv[3] || `page`
+) {
+  const space = await getSpace()
+
+  const env = await space.getEnvironment(`master`)
+  let { items } = await env.getEntries({ content_type: contentType })
+  items = items.filter((itm) => itm?.fields?.body?.de?.includes(searchTerm))
+  items.forEach((itm) => {
+    itm.fields.body.de = itm?.fields?.body?.de?.replaceAll(
+      `image-row`,
+      `grid fit`
+    )
+    itm.update()
+    itm.publish()
+  })
+}
+
 export async function convertBlogTagsFromRefsToList() {
   const space = await getSpace()
 
@@ -87,4 +106,4 @@ export async function createFAQEntries() {
 }
 
 // run with: node src/utils/contentful.js
-convertBlogTagsFromRefsToList()
+searchStringInContentType()
