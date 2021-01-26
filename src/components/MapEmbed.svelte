@@ -3,7 +3,7 @@
   export let place, title
 
   const { session } = stores()
-  const { GOOGLE_MAPS_EMBED_API_KEY: key } = $session
+  const { GOOGLE_MAPS_API_KEY: key } = $session
 
   const src = `https://google.com/maps/embed/v1/place?q=${place}&key=${key}`
 </script>

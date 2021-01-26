@@ -17,6 +17,7 @@
 
   import Header from '../components/Header.svelte'
   import Footer from '../components/Footer.svelte'
+  import GoogleAnalytics from '../components/GoogleAnalytics.svelte'
 
   export let nav, pageData, footer, social, segment
 
@@ -40,6 +41,7 @@
   <meta name="date" content={date} />
 </svelte:head>
 
+<GoogleAnalytics />
 <Header {nav} />
 <main>
   <slot />

@@ -8,7 +8,7 @@
 
 <h3 align="center">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/209f70e1-0a07-4d82-b642-55c77f2af40f/deploy-status)](https://app.netlify.com/sites/afara-svelte/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/209f70e1-0a07-4d82-b642-55c77f2af40f/deploy-status)](https://app.netlify.com/sites/afara/deploys)
 [![CI](https://github.com/janosh/afara-svelte/workflows/CI/badge.svg)](https://github.com/janosh/afara-svelte/actions)
 [![License](https://img.shields.io/github/license/janosh/afara-svelte?label=License)](/license)
 ![GitHub repo size](https://img.shields.io/github/repo-size/janosh/afara-svelte?label=Repo+Size)

@@ -25,8 +25,8 @@
 
 <article>
   <Img sizes={[{ w: 1000 }, { w: 700 }, { w: 500 }, { w: 300 }]} {...cover} />
+  <h1>{title}</h1>
   <section>
-    <h1>{title}</h1>
     <Img sizes={[{ w: 150 }]} src={photo.url} alt={name} />
     <span>
       von
