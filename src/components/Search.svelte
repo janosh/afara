@@ -104,9 +104,8 @@
   }
   input {
     font-size: 1em;
-    background: var(--accentBg);
+    background: var(--bodyBg);
     border-radius: 5pt;
-    color: var(--linkColor);
     border: 0;
     outline: none;
     width: 0;
@@ -115,9 +114,8 @@
     opacity: 0;
     padding: 0;
     height: 2.5ex;
-  }
-  input::placeholder {
-    color: var(--linkColor);
+    line-height: inherit;
+    color: var(--lightGray);
   }
   input.hasFocus {
     opacity: 1;
@@ -125,8 +123,11 @@
     margin-left: -2.5ex;
     padding-left: 3ex;
   }
+  input::placeholder {
+    color: var(--lightGray);
+  }
   input.hasFocus + button {
-    color: var(--linkColor);
+    color: var(--lightGray);
   }
   div.results {
     z-index: 1;

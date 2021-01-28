@@ -5,7 +5,7 @@
     const nav = await fetchYaml(`Nav`)
     const footer = await fetchYaml(`Footer`)
     const social = await fetchYaml(`Social`)
-    const pageData = (await fetchPage(path.substring(1) || `/`)) || {}
+    const pageData = await fetchPage(path.substring(1) || `/`)
 
     return { nav, pageData, footer, social }
   }
@@ -13,22 +13,12 @@
 
 <script>
   import Update from '@svg-icons/material-sharp/update.svg'
-  import { stores } from '@sapper/app'
 
   import Header from '../components/Header.svelte'
   import Footer from '../components/Footer.svelte'
   import GoogleAnalytics from '../components/GoogleAnalytics.svelte'
 
   export let nav, pageData, footer, social, segment
-
-  const { page } = stores()
-
-  if (typeof window !== `undefined`) {
-    page.subscribe(() => {
-      if (!window.locations) window.locations = [document.referrer]
-      window.locations.push(location.pathname + location.search)
-    })
-  }
 
   $: ({ title, sys } = pageData)
   $: date = new Date(sys?.publishedAt).toLocaleDateString(`de`)

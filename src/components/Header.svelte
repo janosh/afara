@@ -4,10 +4,14 @@
   import Search from './Search.svelte'
 
   export let nav
+
+  let scrollY
 </script>
 
-<header>
-  <Nav {nav} />
+<svelte:window bind:scrollY />
+
+<header class:opaque={scrollY > 300}>
+  <Nav {nav} opaque={scrollY > 300} />
   <ColorMode />
   <Search indices={[`Seiten`, `Posts`]} />
 </header>
@@ -19,12 +23,18 @@
     gap: 2vw;
     white-space: nowrap;
     display: grid;
-    position: sticky;
+    position: fixed;
     top: 0;
     font-weight: 300;
-    background: var(--headerBg);
+    background: rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 1ex black;
     z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.2s;
+  }
+  header.opaque {
+    background: var(--headerBg);
   }
   @media (max-width: 1000px) {
     header {

@@ -6,7 +6,7 @@
 
   import { onClickOutside } from '../utils/actions'
 
-  export let nav
+  export let nav, opaque
 
   let isOpen = false
   let activeSubNav = null
@@ -39,9 +39,9 @@
 </button>
 
 <a on:click={close} class="logo" href="/" sapper:prefetch aria-current={isCurrent(`/`)}
-  ><img src="favicon.svg" alt="SbS Logo" style="height: 2em;" /></a>
+  ><img src="favicon.svg" alt="Logo" style="height: 2em;" /></a>
 
-<nav class:isOpen use:onClickOutside={close} bind:this={resultsDiv}>
+<nav class:isOpen class:opaque use:onClickOutside={close} bind:this={resultsDiv}>
   <ul>
     {#each nav as { title, url, subNav }, idx}
       <li
@@ -159,11 +159,11 @@
     }
     nav > ul > li > ul {
       position: absolute;
-      background: var(--headerBg);
+      background: rgba(0, 0, 0, 0.6);
       padding: 1ex 1em;
       border-radius: 1ex;
-      box-shadow: 0 0 1em black;
-      top: 3ex;
+      box-shadow: 0 0 1em -1ex black;
+      top: 3.5ex;
       visibility: hidden;
       opacity: 0;
       transition: 0.3s;
@@ -173,6 +173,9 @@
       max-height: 80vh;
       overflow-y: auto;
       overscroll-behavior: none;
+    }
+    nav.opaque > ul > li > ul {
+      background: var(--headerBg);
     }
     nav > ul > li > ul > li.span {
       grid-column: 1/-1;

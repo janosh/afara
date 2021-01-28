@@ -21,7 +21,7 @@
 </script>
 
 <footer>
-  <img src="favicon.svg" alt="SbS Logo" height="60" />
+  <img src="favicon.svg" alt="Logo" height="60" />
   <span>© 2020 Afara e.V.</span>
   <div>
     {#each links as { title, url }}
