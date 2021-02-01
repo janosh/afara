@@ -1,19 +1,25 @@
 <script>
+  import Update from '@svg-icons/material-sharp/update.svg'
+
   import Img from '../components/Img.svelte'
   import Toc from '../components/Toc.svelte'
 
   export let page
 
-  $: ({ title, cover, body, yaml } = page)
+  $: ({ title, slug, date, cover, body, yaml, sys } = page)
+
+  $: date = new Date(date || sys?.publishedAt).toLocaleDateString(`de`)
+  const style = `height: 3ex; vertical-align: bottom; padding-right: 4pt;`
 </script>
+
+<svelte:head>
+  <title>{title ? `${title} - Afara` : `Afara`}</title>
+  <meta name="date" content={date} />
+</svelte:head>
 
 <figure>
   <Img {...cover} />
-  {#if $$slots.title}
-    <slot name="title" />
-  {:else if title}
-    <h1>{title}</h1>
-  {/if}
+  <h1>{title}</h1>
   {#if yaml?.caption}
     <figcaption>{@html yaml.caption}</figcaption>
   {/if}
@@ -24,6 +30,15 @@
     <Toc />
   {/if}
   {@html body}
+  {#if sys?.publishedAt && !slug.includes(`blog`)}
+    <time>
+      <Update {style} />Zuletzt bearbeitet:
+      {date}</time>
+    <address>
+      <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}"
+        >War diese Seite hilfreich?</a>
+    </address>
+  {/if}
 </article>
 
 <style>
@@ -39,8 +54,7 @@
     max-height: 50vh;
     margin: 0;
   }
-  figure > h1,
-  figure > :global([slot='title']) {
+  figure > h1 {
     color: white;
     background: rgba(0, 0, 0, 0.4);
     font-size: 5ex;
@@ -67,5 +81,17 @@
   }
   figcaption :global(a) {
     color: var(--lightBlue);
+  }
+  time {
+    display: block;
+    font-size: 1ex;
+    margin: 2em;
+    text-align: center;
+  }
+  address {
+    text-align: center;
+    font-size: 1.3ex;
+    font-style: normal;
+    margin: 2em;
   }
 </style>

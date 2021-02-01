@@ -10,7 +10,7 @@
 
   let isOpen = false
   let activeSubNav = null
-  let resultsDiv, viewWidth, hovered
+  let viewWidth, hovered
   const close = () => {
     isOpen = false
     hovered = null
@@ -25,7 +25,7 @@
   // isCurrent needs to be reactive to respond to changes in $page.path
   $: isCurrent = (url) => {
     if (url === $page.path) return `page`
-    if ($page.path !== `/` && $page.path.includes(url)) return `page`
+    if (url !== `/` && $page.path.includes(url)) return `page`
     return undefined
   }
 </script>
@@ -41,7 +41,7 @@
 <a on:click={close} class="logo" href="/" sapper:prefetch aria-current={isCurrent(`/`)}
   ><img src="favicon.svg" alt="Logo" style="height: 2em;" /></a>
 
-<nav class:isOpen class:opaque use:onClickOutside={close} bind:this={resultsDiv}>
+<nav class:isOpen class:opaque use:onClickOutside={close}>
   <ul>
     {#each nav as { title, url, subNav }, idx}
       <li

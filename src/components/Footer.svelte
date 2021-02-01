@@ -52,6 +52,8 @@
     display: grid;
     gap: 3em;
     place-items: center;
+    background: var(--darkGray);
+    color: white;
   }
   footer :global(a) {
     color: var(--darkOrange);
