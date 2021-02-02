@@ -172,9 +172,9 @@ const postFragment = `
       email
       bio
       photo {
-        title
-        description
-        url
+        src: url
+        width
+        height
       }
     }
   }
@@ -192,9 +192,10 @@ const postsQuery = `{
   }
 }`
 
-function processPost(post) {
+async function processPost(post) {
   renderBody(post)
   prefixSlug(`blog/`)(post)
+  post.cover.base64 = await base64Thumbnail(post.cover.src)
   return post
 }
 
@@ -202,15 +203,13 @@ export async function fetchPost(slug) {
   if (!slug) throw `fetchPost requires a slug, got '${slug}'`
   const data = await ctfFetch(postQuery(slug))
   const post = data?.posts?.items[0]
-  if (post?.cover?.src)
-    post.cover.base64 = await base64Thumbnail(post?.cover?.src)
   return processPost(post)
 }
 
 export async function fetchPosts() {
   const data = await ctfFetch(postsQuery)
   const posts = data?.posts?.items
-  return posts.map(processPost)
+  return await Promise.all(posts.map(processPost))
 }
 
 const yamlQuery = (title) => `{
@@ -225,22 +224,4 @@ export async function fetchYaml(title) {
   if (!title) throw `fetchYaml requires a title, got '${title}'`
   const { yml } = await ctfFetch(yamlQuery(title))
   return yaml.load(yml?.items[0]?.data)
-}
-
-function titleToSlug(itm) {
-  itm.slug = itm.title
-    .toLowerCase()
-    .replace(/ä/g, `ae`)
-    .replace(/ö/g, `oe`)
-    .replace(/ü/g, `ue`)
-    .replace(/[^\w ]+/g, ``)
-    .replace(/[^\w ]+/g, ``)
-    .replace(/ +/g, `-`)
-  itm.id = itm.slug
-  return itm
-}
-
-export async function fetchYamlList(title, slugPrefix) {
-  const list = await fetchYaml(title)
-  return list.map(renderBody).map(titleToSlug).map(prefixSlug(slugPrefix))
 }
