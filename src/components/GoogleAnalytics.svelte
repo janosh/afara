@@ -13,7 +13,9 @@
   <script async src="https://googletagmanager.com/gtag/js?id=G-NF66NGCQSG"></script>
   <script>
     window.dataLayer = window.dataLayer || []
-    window.gtag = (...args) => dataLayer.push(args)
+    function gtag() {
+      dataLayer.push(arguments)
+    }
 
     gtag('js', new Date())
 

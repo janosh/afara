@@ -78,7 +78,7 @@
 <style>
   h2 {
     text-align: center;
-    margin-top: 2em;
+    margin-top: 4em;
   }
   ul {
     font-size: 0.9em;
@@ -92,14 +92,16 @@
     list-style: none;
   }
   ul > li > button {
-    border: 1px dotted;
+    background: var(--lightBg);
+    color: var(--textColor);
+    border-radius: 4pt;
     padding: 3pt 7pt;
     transition: 0.4s;
     display: flex;
     align-items: center;
   }
   ul > li > button.active {
-    box-shadow: inset 0 0 1em -5pt black;
-    background: var(--green);
+    color: white;
+    background: var(--darkGreen);
   }
 </style>

@@ -1,11 +1,11 @@
 <script>
-  export let width = `14em`
+  export let maxWidth = `14em`
 </script>
 
 {#if $$slots.tip}
   <span>
     <slot />
-    <div style="width: {width};">
+    <div style="max-width: {maxWidth};">
       <slot name="tip" />
     </div>
   </span>

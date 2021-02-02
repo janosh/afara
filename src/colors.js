@@ -21,7 +21,7 @@ export const colors = {
   red: `#de4931`,
 
   lighterGray: `#fafafa`,
-  lightGray: `#bbbbbb`,
+  lightGray: `#e2e2e2`,
   gray: `#2b363f`,
   darkGray: `#1d242a`,
 }
@@ -33,7 +33,7 @@ export const modeColors = {
     hoverColor: colors.lightBlue,
     bodyBg: colors.lighterGray,
     accentBg: `white`,
-    lightBg: colors.lighterGray,
+    lightBg: colors.lightGray,
     shadow: colors.gray,
     borderColor: colors.lightBlue,
     headingColor: colors.lightBlue,
