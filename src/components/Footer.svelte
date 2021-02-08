@@ -21,8 +21,11 @@
 </script>
 
 <footer>
-  <img src="favicon.svg" alt="Logo" height="60" />
-  <span>© 2020 Afara e.V.</span>
+  <div class="copyright">
+    <img src="favicon.svg" alt="Logo" height="60" />
+    <span>© {new Date().getFullYear()} Afara e.V.</span>
+  </div>
+  <Social {social} style="margin-top: 1ex;" />
   <div>
     {#each links as { title, url }}
       <a href={url}>
@@ -36,13 +39,11 @@
       <OpenSource
         height="2.5ex"
         style="vertical-align: bottom; padding-right: 3pt;" />open source</a>
-    und verwendet
+    und frei von
     <a href="https://de.wikipedia.org/wiki/HTTP-Cookie">
-      keine
       <Cookie height="2.2ex" style="vertical-align: middle;" />
       Cookies.</a
     ></span>
-  <Social {social} style="margin-top: 1ex;" />
 </footer>
 
 <style>
@@ -50,22 +51,36 @@
     padding: 3em calc(1em + 3vw);
     text-align: center;
     display: grid;
-    gap: 3em;
+    gap: 2em;
     place-items: center;
     background: var(--darkGray);
     color: white;
   }
   footer :global(a) {
-    color: var(--darkOrange);
+    color: var(--lightGreen);
   }
   footer :global(a:hover) {
-    color: var(--red);
+    color: var(--darkOrange);
   }
   footer div {
     margin: auto;
     display: flex;
-    gap: 1em;
+    gap: 3pt 1em;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  @media (max-width: 700px) {
+    footer div.copyright {
+      display: contents;
+    }
+  }
+  @media (min-width: 701px) {
+    footer {
+      place-content: center;
+      grid-template-columns: 1fr 1fr;
+    }
+    footer div.copyright {
+      place-items: center;
+    }
   }
 </style>

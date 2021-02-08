@@ -87,6 +87,7 @@
     font-size: 1ex;
     margin: 2em;
     text-align: center;
+    margin-top: 7em;
   }
   address {
     text-align: center;

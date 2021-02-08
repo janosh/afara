@@ -59,3 +59,9 @@ blockquote {
 .grid.fit {
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
 }
+/* captions */
+p > picture + em,
+p > a + em {
+  text-align: center;
+  display: block;
+}

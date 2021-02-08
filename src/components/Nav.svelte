@@ -38,8 +38,14 @@
   <Menu height="2.9ex" style="vertical-align: middle;" />
 </button>
 
-<a on:click={close} class="logo" href="/" sapper:prefetch aria-current={isCurrent(`/`)}
-  ><img src="favicon.svg" alt="Logo" style="height: 2em;" /></a>
+<a
+  on:click={close}
+  class="logo"
+  class:opaque
+  href="/"
+  sapper:prefetch
+  aria-current={isCurrent(`/`)}
+  ><img src="favicon.svg" alt="Logo" height="50" width="50" /></a>
 
 <nav class:isOpen class:opaque use:onClickOutside={close}>
   <ul>
@@ -176,6 +182,11 @@
     }
     nav.opaque > ul > li > ul {
       background: var(--headerBg);
+    }
+    .logo.opaque {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      padding: 1px;
     }
     nav > ul > li > ul > li.span {
       grid-column: 1/-1;

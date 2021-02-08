@@ -22,7 +22,7 @@ const renderer = {
   },
   // add Sapper prefetching for local markdown links
   link(href, title, text) {
-    if (href.startsWith(`/`)) {
+    if (!href.startsWith(`http`) && !href.startsWith(`www`)) {
       title = title ? `title="${title}"` : ``
       return `<a sapper:prefetch href="${href}" ${title}>${text}</a>`
     }
@@ -36,14 +36,15 @@ const renderer = {
         youtube: (id) => `https://youtube.com/embed/${id}`,
         vimeo: (id) => `https://player.vimeo.com/video/${id}`,
       }
-
+      // padding-top: 56.25%; corresponds to 16/9 = most common video aspect ratio
       return `
         <div style="padding-top: 56.25%; position: relative;">
           <iframe
-            title="Video"
+            title="${platform} video"
+            loading="lazy"
             src="${embed[platform](id)}"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-            allow="autoplay; fullscreen"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
             allowfullscreen></iframe>
         </div>`
     }
