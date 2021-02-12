@@ -55,6 +55,7 @@
     place-items: center;
     background: var(--darkGray);
     color: white;
+    padding-inline: max(1em, calc(50vw - 30em));
   }
   footer :global(a) {
     color: var(--lightGreen);
