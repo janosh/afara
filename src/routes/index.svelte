@@ -52,13 +52,18 @@
       'img8 img8 img8 img3 img3 img3 img3 img3 img2 img2 img2'
       'img4 img4 img4 txt1 txt1 txt1 txt1 txt1 img6 img6 img6'
       'img4 img4 img4 img9 img9 img9 img9 img9 img6 img6 img6'
-      'img5 img5 img5 txt3 txt3 txt3 txt3 img1 img1 img1 img1'
-      'img5 img5 img5 img7 img7 img7 img7 img1 img1 img1 img1';
+      'img5 img5 img5 txt3 txt3 txt3 txt3 txt3 img1 img1 img1'
+      'img5 img5 img5 img7 img7 img7 img7 img7 img1 img1 img1';
+  }
+  @media (min-width: 801px) {
+    .grid {
+      grid-auto-rows: 4em 12em;
+    }
   }
   @media (max-width: 800px) {
     .grid {
       grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: calc(10em + 6vw);
+      grid-auto-rows: calc(12em + 6vw);
       grid-template-areas:
         'img1 txt1 img2'
         'txt2 img3 img4'
@@ -76,7 +81,7 @@
   }
   .grid div {
     border-radius: 5pt;
-    font-size: 2ex;
+    font-size: calc(1.5ex + 1vw);
     display: flex;
     place-items: center;
     padding: 5pt 1em;

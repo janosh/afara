@@ -1,6 +1,5 @@
 <script>
   import OpenSource from '@svg-icons/remix-fill/open-source.svg'
-  import Cookie from '@svg-icons/boxicons-solid/cookie.svg'
   import Law from '@svg-icons/octicons/law.svg'
   import PrivacyTip from '@svg-icons/material-sharp/privacy-tip.svg'
   import AlternateEmail from '@svg-icons/material-sharp/alternate-email.svg'
@@ -38,12 +37,8 @@
     <a href="https://github.com/janosh/afara-svelte">
       <OpenSource
         height="2.5ex"
-        style="vertical-align: bottom; padding-right: 3pt;" />open source</a>
-    und frei von
-    <a href="https://de.wikipedia.org/wiki/HTTP-Cookie">
-      <Cookie height="2.2ex" style="vertical-align: middle;" />
-      Cookies.</a
-    ></span>
+        style="vertical-align: middle; padding-right: 3pt;" />open source</a
+    >.</span>
 </footer>
 
 <style>
