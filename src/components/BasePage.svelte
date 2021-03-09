@@ -36,7 +36,7 @@
       {date}</time>
     <address>
       <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}"
-        >War diese Seite hilfreich?</a>
+        >Feedback zu dieser Seite?</a>
     </address>
   {/if}
 </article>
