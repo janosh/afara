@@ -60,8 +60,7 @@ blockquote {
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
 }
 /* captions */
-p > picture + em,
-p > a + em {
+p > :is(picture + em, a + em) {
   text-align: center;
   display: block;
 }
