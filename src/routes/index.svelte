@@ -14,9 +14,13 @@
   export let page, yaml
 
   let windowWidth
+
+  const orange = `#ea9419`
+  const yellow = `#ffc326`
+  const colors = [yellow, orange, orange]
 </script>
 
-<h1>Afara e.V.</h1>
+<h1>AFARA e.V.</h1>
 <div class="grid">
   {#each yaml.images.slice(0, windowWidth > 800 ? 9 : windowWidth < 500 ? 3 : 6) as img, idx}
     <Img
@@ -25,7 +29,7 @@
       pictureStyle="grid-area: img{idx + 1};" />
   {/each}
   {#each Object.values(yaml.text) as text, idx}
-    <div style="grid-area: txt{idx + 1};">
+    <div style="grid-area: txt{idx + 1}; background: {colors[idx]};">
       <span>{text}</span>
     </div>
   {/each}
@@ -40,6 +44,8 @@
 <style>
   h1 {
     font-size: calc(3ex + 2vw);
+    margin: 2em 0 0 0;
+    font-family: papyrus;
   }
   .grid {
     margin: 1em 2vw 2em;
@@ -81,13 +87,16 @@
   }
   .grid div {
     border-radius: 5pt;
-    font-size: calc(1.5ex + 1vw);
+    font-size: calc(1ex + 0.5vw);
     display: flex;
     place-items: center;
     padding: 5pt 1em;
     color: white;
     font-size: calc(1em + 0.5vw);
-    background: var(--darkOrange);
+    font-family: papyrus;
+  }
+  .grid div span {
+    margin: 5pt 0 0 0;
   }
   .grid :global(img) {
     border-radius: 5pt;

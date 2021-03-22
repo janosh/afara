@@ -18,7 +18,7 @@
 </svelte:head>
 
 <figure>
-  <Img {...cover} />
+  <Img {...cover} imgStyle="height: 100%;" />
   <h1>{title}</h1>
   {#if yaml?.caption}
     <figcaption>{@html yaml.caption}</figcaption>
