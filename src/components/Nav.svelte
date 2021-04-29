@@ -1,8 +1,9 @@
 <script>
-  import { stores } from '@sapper/app'
+  import { page } from '$app/stores'
+
   import { slide } from 'svelte/transition'
-  import Menu from '@svg-icons/heroicons-solid/menu.svg'
-  import ChevronExpand from '@svg-icons/bootstrap/chevron-expand.svg'
+  import Menu from '@svicons/heroicons-solid/menu.svelte'
+  import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
 
   import { onClickOutside } from '../utils/actions'
 
@@ -21,7 +22,6 @@
     else activeSubNav = null
   }
 
-  const { page } = stores()
   // isCurrent needs to be reactive to respond to changes in $page.path
   $: isCurrent = (url) => {
     if (url === $page.path) return `page`
@@ -43,7 +43,7 @@
   class="logo"
   class:opaque
   href="/"
-  sapper:prefetch
+  sveltekit:prefetch
   aria-current={isCurrent(`/`)}
   ><img src="favicon.svg" alt="Logo" height="50" width="50" /></a>
 
@@ -54,7 +54,7 @@
         on:mouseenter={() => (hovered = idx)}
         on:mouseleave={() => (hovered = null)}
         class:hover={hovered === idx}>
-        <a on:click={close} sapper:prefetch aria-current={isCurrent(url)} href={url}>
+        <a on:click={close} sveltekit:prefetch aria-current={isCurrent(url)} href={url}>
           {title}</a>
         {#if subNav}
           <button on:click={setActiveSubNav(idx)} aria-label="Untermenü {title} öffnen">
@@ -71,7 +71,7 @@
               <li class:span>
                 <a
                   on:click={close}
-                  sapper:prefetch
+                  sveltekit:prefetch
                   aria-current={isCurrent(url)}
                   href={url}>{title}</a>
               </li>

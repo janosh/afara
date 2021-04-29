@@ -1,8 +1,6 @@
 <script>
   // https://analytics.google.com
-  import { stores } from '@sapper/app'
-
-  const { page } = stores()
+  import { page } from '$app/stores'
 
   $: if (typeof gtag !== `undefined`) {
     window.gtag(`config`, `G-NF66NGCQSG`, { page_path: $page.path })

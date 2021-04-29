@@ -1,6 +1,7 @@
 [build]
-  command = "yarn export"
-  publish = "__sapper__/export"
+  command = "yarn build"
+  publish = "build"
+  functions = "functions"
 
 [build.environment]
   NODE_VERSION = "15.5.1"

@@ -1,10 +1,10 @@
 <script context="module">
   import { fetchPage, fetchYaml } from '../utils/queries'
 
-  export async function preload() {
+  export async function load() {
     const page = await fetchPage(`/`)
     const yaml = await fetchYaml(`Landing Page`)
-    return { page, yaml }
+    return { props: { page, yaml } }
   }
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-  import Update from '@svg-icons/material-sharp/update.svg'
+  import Update from '@svicons/material-sharp/update.svelte'
 
   import Img from '../components/Img.svelte'
   import Toc from '../components/Toc.svelte'

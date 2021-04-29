@@ -9,10 +9,10 @@
 <h3 align="center">
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/209f70e1-0a07-4d82-b642-55c77f2af40f/deploy-status)](https://app.netlify.com/sites/afara/deploys)
-[![CI](https://github.com/janosh/afara-svelte/workflows/CI/badge.svg)](https://github.com/janosh/afara-svelte/actions)
-[![License](https://img.shields.io/github/license/janosh/afara-svelte?label=License)](/license)
-![GitHub repo size](https://img.shields.io/github/repo-size/janosh/afara-svelte?label=Repo+Size)
-[![GitHub last commit](https://img.shields.io/github/last-commit/janosh/afara-svelte?label=Last+Commit)](https://github.com/janosh/afara-svelte/commits/master)
+[![CI](https://github.com/janosh/afara/workflows/CI/badge.svg)](https://github.com/janosh/afara/actions)
+[![License](https://img.shields.io/github/license/janosh/afara?label=License)](/license)
+![GitHub repo size](https://img.shields.io/github/repo-size/janosh/afara?label=Repo+Size)
+[![GitHub last commit](https://img.shields.io/github/last-commit/janosh/afara?label=Last+Commit)](https://github.com/janosh/afara/commits/main)
 
 </h3>
 
@@ -27,7 +27,7 @@ Running this site locally requires [`git`](https://git-scm.com) and [`yarn`](htt
 1. Clone the repo and change into its directory.
 
    ```sh
-   git clone https://github.com/janosh/afara-svelte && cd afara-svelte
+   git clone https://github.com/janosh/afara && cd afara
    ```
 
 2. (optional) Setup [`git` hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) by setting `core.hooksPath` and granting execute permission.
@@ -78,7 +78,7 @@ To publish this site to netlify:
 5. Create a production build.
 
    ```sh
-   yarn export
+   yarn build
    ```
 
 6. Finally deploy the site with
