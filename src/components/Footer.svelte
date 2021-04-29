@@ -1,9 +1,9 @@
 <script>
-  import OpenSource from '@svg-icons/remix-fill/open-source.svg'
-  import Law from '@svg-icons/octicons/law.svg'
-  import PrivacyTip from '@svg-icons/material-sharp/privacy-tip.svg'
-  import AlternateEmail from '@svg-icons/material-sharp/alternate-email.svg'
-  import DocumentText from '@svg-icons/ionicons-solid/document-text.svg'
+  import OpenSource from '@svicons/remix-fill/open-source.svelte'
+  import Law from '@svicons/octicons/law.svelte'
+  import PrivacyTip from '@svicons/material-sharp/privacy-tip.svelte'
+  import AlternateEmail from '@svicons/material-sharp/alternate-email.svelte'
+  import DocumentText from '@svicons/ionicons-solid/document-text.svelte'
 
   import Social from './Social.svelte'
 
@@ -34,7 +34,7 @@
   </div>
   <span
     >Diese Seite ist
-    <a href="https://github.com/janosh/afara-svelte">
+    <a href="https://github.com/janosh/afara">
       <OpenSource
         height="2.5ex"
         style="vertical-align: middle; padding-right: 3pt;" />open source</a

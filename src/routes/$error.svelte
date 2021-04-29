@@ -1,6 +1,7 @@
 <script>
+  import { dev } from '$app/env'
+
   export let status, error
-  const dev = process.env.NODE_ENV === `development`
 </script>
 
 <svelte:head>

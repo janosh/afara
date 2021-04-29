@@ -1,9 +1,9 @@
 <script context="module">
   import { fetchPage } from '../utils/queries'
 
-  export async function preload() {
+  export async function load() {
     const page = await fetchPage(`kontakt`)
-    return { page }
+    return { props: { page } }
   }
 </script>
 

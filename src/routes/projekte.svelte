@@ -1,9 +1,9 @@
 <script context="module">
   import { fetchYaml } from '../utils/queries'
 
-  export async function preload() {
+  export async function load() {
     const projects = await fetchYaml(`Projects`)
-    return { projects }
+    return { props: { projects } }
   }
 </script>
 

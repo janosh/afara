@@ -1,4 +1,7 @@
-import { fetchPages, fetchPosts } from './queries'
+import { indexAlgolia } from 'svelte-algolia'
+// https://stackoverflow.com/a/56723769
+// must import with extension here
+import { fetchPages, fetchPosts } from './queries.js'
 
 const bodyToPlainText = (fetchFunction) => async () => {
   const items = await fetchFunction()
@@ -30,4 +33,9 @@ export const algoliaConfig = {
       `author.email`,
     ],
   },
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  // Module was not imported but called directly
+  indexAlgolia(algoliaConfig)
 }

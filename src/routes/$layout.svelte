@@ -1,12 +1,12 @@
 <script context="module">
   import { fetchYaml } from '../utils/queries'
 
-  export async function preload() {
+  export async function load() {
     const nav = await fetchYaml(`Nav`)
     const footer = await fetchYaml(`Footer`)
     const social = await fetchYaml(`Social`)
 
-    return { nav, footer, social }
+    return { props: { nav, footer, social } }
   }
 </script>
 
