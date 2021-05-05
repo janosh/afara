@@ -1,14 +1,26 @@
+<script context="module">
+  export function load({ error, status }) {
+    return {
+      props: { error, status },
+    }
+  }
+</script>
+
 <script>
   import { dev } from '$app/env'
 
   export let status, error
+
+  const offline = typeof navigator !== `undefined` && navigator.onLine === false
+
+  const title = offline ? `Offline` : status
 </script>
 
 <svelte:head>
-  <title>{status}</title>
+  <title>{title}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<h1>{title}</h1>
 
 {#if dev && error.stack}
   <pre>{error.stack}</pre>

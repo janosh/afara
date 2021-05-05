@@ -1,6 +1,4 @@
-import { indexAlgolia } from 'svelte-algolia'
-// https://stackoverflow.com/a/56723769
-// must import with extension here
+import 'cross-fetch/dist/node-polyfill.js'
 import { fetchPages, fetchPosts } from './queries.js'
 
 const bodyToPlainText = (fetchFunction) => async () => {
@@ -33,9 +31,4 @@ export const algoliaConfig = {
       `author.email`,
     ],
   },
-}
-
-if (import.meta.url === `file://${process.argv[1]}`) {
-  // Module was not imported but called directly
-  indexAlgolia(algoliaConfig)
 }

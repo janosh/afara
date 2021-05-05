@@ -8,10 +8,10 @@
 </script>
 
 <script>
-  import ToolTip from '../../components/ToolTip.svelte'
-
   import Calendar from '@svicons/octicons/calendar.svelte'
   import PersonCircle from '@svicons/bootstrap/person-circle.svelte'
+
+  import ToolTip from '../../components/ToolTip.svelte'
   import Img from '../../components/Img.svelte'
 
   export let post

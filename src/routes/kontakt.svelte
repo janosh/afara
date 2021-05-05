@@ -14,6 +14,9 @@
   export let page
 </script>
 
-<BasePage {page} />
-
-<MapEmbed place="Matterstockstraße 17, 97080 Würzburg" title="Kontaktadresse" />
+<BasePage {page}>
+  <MapEmbed
+    place="Matterstockstraße 17, 97080 Würzburg"
+    title="Kontaktadresse"
+    slot="afterBody" />
+</BasePage>

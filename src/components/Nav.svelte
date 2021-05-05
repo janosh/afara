@@ -45,7 +45,7 @@
   href="/"
   sveltekit:prefetch
   aria-current={isCurrent(`/`)}
-  ><img src="favicon.svg" alt="Logo" height="50" width="50" /></a>
+  ><img src="/favicon.svg" alt="Logo" height="50" width="50" /></a>
 
 <nav class:isOpen class:opaque use:onClickOutside={close}>
   <ul>

@@ -21,7 +21,7 @@
 
 <footer>
   <div class="copyright">
-    <img src="favicon.svg" alt="Logo" height="60" />
+    <img src="/favicon.svg" alt="Logo" height="60" />
     <span>© {new Date().getFullYear()} Afara e.V.</span>
   </div>
   <Social {social} style="margin-top: 1ex;" />

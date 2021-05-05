@@ -6,7 +6,7 @@
 
   export let page
 
-  $: ({ title, slug, date, cover, body, yaml, sys } = page)
+  $: ({ title, slug, date, cover, body, yaml, sys } = page || {})
 
   $: date = new Date(date || sys?.publishedAt).toLocaleDateString(`de`)
   const style = `height: 3ex; vertical-align: bottom; padding-right: 4pt;`
@@ -17,29 +17,33 @@
   <meta name="date" content={date} />
 </svelte:head>
 
-<figure>
-  <Img {...cover} imgStyle="height: 100%;" />
-  <h1>{title}</h1>
-  {#if yaml?.caption}
-    <figcaption>{@html yaml.caption}</figcaption>
-  {/if}
-</figure>
-<slot />
-<article>
-  {#if yaml?.toc}
-    <Toc />
-  {/if}
-  {@html body}
-  {#if sys?.publishedAt && !slug.includes(`blog`)}
-    <time>
-      <Update {style} />Zuletzt bearbeitet:
-      {date}</time>
-    <address>
-      <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}"
-        >Feedback zu dieser Seite?</a>
-    </address>
-  {/if}
-</article>
+{#if page}
+  <figure>
+    <Img {...cover} imgStyle="height: 100%;" />
+    <h1>{title}</h1>
+    {#if yaml?.caption}
+      <figcaption>{@html yaml.caption}</figcaption>
+    {/if}
+  </figure>
+  <slot />
+  <article>
+    {#if yaml?.toc}
+      <Toc />
+    {/if}
+    {@html body}
+    <slot name="afterBody" />
+
+    {#if sys?.publishedAt && !slug.includes(`blog`)}
+      <time>
+        <Update {style} />Zuletzt bearbeitet:
+        {date}</time>
+      <address>
+        <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}"
+          >Feedback zu dieser Seite?</a>
+      </address>
+    {/if}
+  </article>
+{/if}
 
 <style>
   article {

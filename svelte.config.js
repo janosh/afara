@@ -1,6 +1,9 @@
-require(`dotenv`).config()
-const replace = require(`@rollup/plugin-replace`)
-const netlify = require(`@sveltejs/adapter-netlify`)
+import 'dotenv/config'
+import replace from '@rollup/plugin-replace'
+import adapter from '@sveltejs/adapter-static'
+
+import { indexAlgolia } from 'svelte-algolia/src/main.js'
+import { algoliaConfig } from './src/utils/algolia.js'
 
 const keys = [`CONTENTFUL_ACCESS_TOKEN`, `CONTENTFUL_SPACE_ID`]
 
@@ -17,12 +20,14 @@ if (dev) {
   const graphiql = `${ctfGqlUrl}/${ctfId}/explore?access_token=${ctfToken}`
   // eslint-disable-next-line no-console
   console.log(`Contentful GraphiQL:`, graphiql)
+} else {
+  indexAlgolia(algoliaConfig)
 }
 
 /** @type {import('@sveltejs/kit').Config} */
-module.exports = {
+export default {
   kit: {
-    adapter: netlify(),
+    adapter: adapter(),
 
     // hydrate the <body> element in src/app.html
     target: `#svelte`,

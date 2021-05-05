@@ -1,11 +1,6 @@
 /* eslint-disable indent */
-import marked from './marked'
+import marked from './marked.js'
 import yaml from 'js-yaml'
-
-const prefixSlug = (prefix) => (obj) => {
-  obj.slug = prefix + obj.slug
-  return obj
-}
 
 export async function contentfulFetch(query) {
   const token = process.env.CONTENTFUL_ACCESS_TOKEN
@@ -142,8 +137,11 @@ const postsQuery = `{
 }`
 
 async function processPost(post) {
+  if (!post) return
   renderBody(post)
-  prefixSlug(`blog/`)(post)
+
+  post.slug = `blog/${post.slug}`
+
   post.cover.base64 = await base64Thumbnail(post.cover.src)
   return post
 }
@@ -152,6 +150,7 @@ export async function fetchPost(slug) {
   if (!slug) throw `fetchPost requires a slug, got '${slug}'`
   const data = await contentfulFetch(postQuery(slug))
   const post = data?.posts?.items[0]
+
   return processPost(post)
 }
 
