@@ -1,7 +1,13 @@
 <script>
+  import Search from 'svelte-algolia'
+
+  import { session } from '$app/stores'
+
   import Nav from './Nav.svelte'
   import ColorMode from './ColorMode.svelte'
-  import Search from './Search.svelte'
+  import SearchHit from './SearchHit.svelte'
+
+  const { ALGOLIA_APP_ID: appId, ALGOLIA_SEARCH_KEY: searchKey } = $session
 
   export let nav
 
@@ -13,7 +19,13 @@
 <header class:opaque={scrollY > 300}>
   <Nav {nav} opaque={scrollY > 300} />
   <ColorMode />
-  <Search indices={[`Seiten`, `Posts`]} />
+  <Search
+    indices={{ Seiten: SearchHit, Posts: SearchHit }}
+    {appId}
+    {searchKey}
+    --hitsBgColor="var(--bodyBg)"
+    --inputColor="white"
+    --iconColor="white" />
 </header>
 
 <style>

@@ -38,7 +38,7 @@
       textColor: `black`,
       linkColor: colors.blue,
       hoverColor: colors.lightBlue,
-      bodyBg: colors.lighterGray,
+      bodyBg: `white`,
       accentBg: `white`,
       lightBg: colors.lightGray,
       shadow: colors.gray,

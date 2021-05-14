@@ -2,7 +2,7 @@ import 'dotenv/config'
 import replace from '@rollup/plugin-replace'
 import adapter from '@sveltejs/adapter-static'
 
-import { indexAlgolia } from 'svelte-algolia/src/main.js'
+import { indexAlgolia } from 'svelte-algolia'
 import { algoliaConfig } from './src/utils/algolia.js'
 
 const keys = [`CONTENTFUL_ACCESS_TOKEN`, `CONTENTFUL_SPACE_ID`]
@@ -24,7 +24,6 @@ if (dev) {
   indexAlgolia(algoliaConfig)
 }
 
-/** @type {import('@sveltejs/kit').Config} */
 export default {
   kit: {
     adapter: adapter(),

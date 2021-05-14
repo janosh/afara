@@ -5,12 +5,13 @@
   export let clickHandler = () => {}
 
   $: ({ title, slug, body, cover = {}, date, author } = hit)
+  const imgStyle = `max-height: 125px; border-radius: 3pt;`
 </script>
 
 <div>
   {#if cover.src}
     <a sveltekit:prefetch href={slug} on:click={clickHandler}>
-      <Img {...cover} sizes={[{ w: 150 }]} />
+      <Img {...cover} sizes={[{ w: 150 }]} {imgStyle} />
     </a>
   {/if}
   <h3>
@@ -44,8 +45,12 @@
   }
   div :global(picture) {
     float: right;
-    border-radius: 2pt;
     margin: 1ex 0 1ex 1ex;
-    overflow: hidden;
+  }
+  div :global(em) {
+    background: var(--orange);
+    line-height: 1.2em;
+    border-radius: 2pt;
+    font-style: normal;
   }
 </style>

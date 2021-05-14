@@ -7,7 +7,7 @@ const bodyToPlainText = (fetchFunction) => async () => {
     if (!itm.id) itm.id = itm?.slug || itm?.title
 
     if (itm.body && itm.plainBody) {
-      itm.body = itm.plainBody
+      itm.body = itm.plainBody.slice(0, 2000)
       delete itm.plainBody
       delete itm.cover.base64
     }
