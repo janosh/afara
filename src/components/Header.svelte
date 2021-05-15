@@ -7,11 +7,21 @@
   import ColorMode from './ColorMode.svelte'
   import SearchHit from './SearchHit.svelte'
 
-  const { ALGOLIA_APP_ID: appId, ALGOLIA_SEARCH_KEY: searchKey } = $session
-
   export let nav
 
   let scrollY
+
+  const searchProps = {
+    indices: { Seiten: SearchHit, Posts: SearchHit },
+    appId: $session.ALGOLIA_APP_ID,
+    searchKey: $session.ALGOLIA_SEARCH_KEY,
+    loadingStr: `Suche läuft...`,
+    noResultMsg: (query) => `Keine Ergebnisse für '${query}'`,
+    resultReporter: (hits) =>
+      hits.length > 0 ? `<span>Ergebnisse: ${hits.length}<span>` : ``,
+    placeholder: `Suche`,
+    ariaLabel: `Suche`,
+  }
 </script>
 
 <svelte:window bind:scrollY />
@@ -20,9 +30,7 @@
   <Nav {nav} opaque={scrollY > 300} />
   <ColorMode />
   <Search
-    indices={{ Seiten: SearchHit, Posts: SearchHit }}
-    {appId}
-    {searchKey}
+    {...searchProps}
     --hitsBgColor="var(--bodyBg)"
     --inputColor="white"
     --iconColor="white" />
