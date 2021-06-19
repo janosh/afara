@@ -78,3 +78,7 @@ p > :is(picture + em, a + em) {
 :where(h2, h3, h4, h5, h6):hover a[aria-hidden='true'] {
   opacity: 1;
 }
+
+table td {
+  padding: 0 1em 0 0;
+}

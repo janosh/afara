@@ -2,7 +2,6 @@
   import Update from '@svicons/material-sharp/update.svelte'
 
   import Img from '../components/Img.svelte'
-  import Toc from '../components/Toc.svelte'
 
   export let page
 
@@ -27,9 +26,6 @@
   </figure>
   <slot />
   <article>
-    {#if yaml?.toc}
-      <Toc />
-    {/if}
     {@html body}
     <slot name="afterBody" />
 

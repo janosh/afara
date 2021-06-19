@@ -45,7 +45,6 @@
   h1 {
     font-size: calc(3ex + 2vw);
     margin: 2em 0 0 0;
-    font-family: papyrus;
   }
   .grid {
     margin: 1em 2vw 2em;
@@ -87,13 +86,11 @@
   }
   .grid div {
     border-radius: 5pt;
-    font-size: calc(1ex + 0.5vw);
     display: flex;
     place-items: center;
+    place-content: center;
     padding: 5pt 1em;
     color: white;
-    font-size: calc(1em + 0.5vw);
-    font-family: papyrus;
   }
   .grid div span {
     margin: 5pt 0 0 0;
