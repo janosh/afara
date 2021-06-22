@@ -32,10 +32,12 @@
     {#if sys?.publishedAt && !slug.includes(`blog`)}
       <time>
         <Update {style} />Zuletzt bearbeitet:
-        {date}</time>
+        {date}
+      </time>
       <address>
-        <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}"
-          >Feedback zu dieser Seite?</a>
+        <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}">
+          Feedback zu dieser Seite?
+        </a>
       </address>
     {/if}
   </article>

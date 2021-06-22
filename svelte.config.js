@@ -29,7 +29,7 @@ export default {
     adapter: adapter(),
 
     // hydrate the div with id 'svelte' in src/app.html
-    target: `#svelte`,
+    // target: `#svelte`, remove duplicate hydration content, maybe this bug https://github.com/sveltejs/svelte/issues/6274
 
     vite: {
       plugins: [replace(replacements)],

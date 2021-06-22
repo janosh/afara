@@ -32,13 +32,14 @@
         {title}</a>
     {/each}
   </div>
-  <span
-    >Diese Seite ist
+  <span>
+    Diese Seite ist
     <a href="https://github.com/janosh/afara">
       <OpenSource
         height="2.5ex"
-        style="vertical-align: middle; padding-right: 3pt;" />open source</a
-    >.</span>
+        style="vertical-align: middle; padding-right: 3pt;" />open source
+    </a>
+  </span>
 </footer>
 
 <style>

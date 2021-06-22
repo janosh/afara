@@ -23,4 +23,4 @@
 <main>
   <slot />
 </main>
-<Footer {...footer} {social} />
+<Footer links={footer.links} {social} />
