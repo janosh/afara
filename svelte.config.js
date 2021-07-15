@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import replace from '@rollup/plugin-replace'
+
 import adapter from '@sveltejs/adapter-static'
+import preprocess from "svelte-preprocess"
 
 import { indexAlgolia } from 'svelte-algolia/main.js'
 import { algoliaConfig } from './src/utils/algolia.js'
@@ -25,11 +27,14 @@ if (dev) {
 }
 
 export default {
+  preprocess: preprocess(),
+
   kit: {
     adapter: adapter(),
 
     // hydrate the div with id 'svelte' in src/app.html
-    // target: `#svelte`, remove duplicate hydration content, maybe this bug https://github.com/sveltejs/svelte/issues/6274
+    // duplicate hydration content on project pages likely coming from this bug https://git.io/JcKv1
+    // target: `#svelte`,
 
     vite: {
       plugins: [replace(replacements)],

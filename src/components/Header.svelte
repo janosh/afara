@@ -1,23 +1,24 @@
-<script>
+<script lang="ts">
   import Search from 'svelte-algolia/Search.svelte'
 
   import { session } from '$app/stores'
 
+  import type { NavEntry } from '../types'
   import Nav from './Nav.svelte'
   import ColorMode from './ColorMode.svelte'
   import SearchHit from './SearchHit.svelte'
 
-  export let nav
+  export let nav: NavEntry[]
 
-  let scrollY
+  let scrollY: number
 
   const searchProps = {
     indices: { Seiten: SearchHit, Posts: SearchHit },
     appId: $session.ALGOLIA_APP_ID,
     searchKey: $session.ALGOLIA_SEARCH_KEY,
     loadingStr: `Suche läuft...`,
-    noResultMsg: (query) => `Keine Ergebnisse für '${query}'`,
-    resultReporter: (hits) =>
+    noResultMsg: (query: string) => `Keine Ergebnisse für '${query}'`,
+    resultReporter: (hits: unknown[]) =>
       hits.length > 0 ? `<span>Ergebnisse: ${hits.length}<span>` : ``,
     placeholder: `Suche`,
     ariaLabel: `Suche`,

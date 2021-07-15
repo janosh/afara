@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte'
+  import type { Post } from '../types'
 
   import Img from './Img.svelte'
 
-  export let hit
+  export let hit: Post
 
   const dispatch = createEventDispatcher()
 
-  $: ({ title, slug, body, cover = {}, date, author } = hit)
+  $: ({ title, slug, body, cover, date, author } = hit)
   const imgStyle = `max-height: 125px; border-radius: 3pt;`
 </script>
 

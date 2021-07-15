@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import OpenSource from '@svicons/remix-fill/open-source.svelte'
   import Law from '@svicons/octicons/law.svelte'
   import PrivacyTip from '@svicons/material-sharp/privacy-tip.svelte'
@@ -14,8 +14,8 @@
     Satzung: DocumentText,
   }
 
-  export let social
-  export let links
+  export let social: Record<string, string>
+  export let links: { title: keyof typeof icons; url: string }[]
   const style = `height: 1em; vertical-align: -3pt; padding-right: 2pt;`
 </script>
 

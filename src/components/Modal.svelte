@@ -1,41 +1,48 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher, onDestroy, onMount } from 'svelte'
 
   import { preventOverScroll } from '../utils/actions'
 
-  export let style
+  export let style: string
   export let showCloseBtn = false
 
   const dispatch = createEventDispatcher()
   const close = () => dispatch(`close`)
 
-  let modal, origScrollPos
-  // record original scroll position to return to when modal closes (see onDestroy)
+  let modal: HTMLDivElement
+  let origScrollPos: [number, number]
+  let origActiveElement: HTMLElement | null
+
+  // record original scroll position and focussed element
+  // to return to when modal closes (see onDestroy)
   onMount(() => {
     origScrollPos = [window.scrollX, window.scrollY]
+    origActiveElement = document.activeElement as HTMLElement
   })
 
-  const previouslyFocused = typeof document !== `undefined` && document.activeElement
   onDestroy(() => {
-    if (previouslyFocused) previouslyFocused.focus()
+    if (origActiveElement) origActiveElement.focus()
     window.scrollTo(...origScrollPos)
   })
 
-  const handleKeydown = (event) => {
+  const handleKeydown = (event: KeyboardEvent) => {
     if (event.key === `Escape`) return close()
 
     if (event.key === `Tab`) {
-      // trap focus
-      const nodes = modal.querySelectorAll(`*`)
+      // trap focus inside the modal
+      const nodes = modal.querySelectorAll<HTMLElement>(`*`) // get all the modal's child nodes
       const tabbable = Array.from(nodes).filter((n) => n.tabIndex >= 0)
 
-      let index = tabbable.indexOf(document.activeElement)
-      if (index === -1 && event.shiftKey) index = 0
+      const activeEl = document?.activeElement
+      if (activeEl) {
+        let index = tabbable.indexOf(activeEl as HTMLElement)
+        if (index === -1 && event.shiftKey) index = 0
 
-      index += tabbable.length + (event.shiftKey ? -1 : 1)
-      index %= tabbable.length
+        index += tabbable.length + (event.shiftKey ? -1 : 1)
+        index %= tabbable.length
 
-      tabbable[index].focus()
+        tabbable[index].focus()
+      }
     }
   }
 </script>

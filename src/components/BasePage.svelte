@@ -1,13 +1,15 @@
-<script>
+<script lang="ts">
   import Update from '@svicons/material-sharp/update.svelte'
 
   import Img from '../components/Img.svelte'
+  import type { Page } from '../types'
 
-  export let page
+  export let page: Page
 
   $: ({ title, slug, date, cover, body, yaml, sys } = page || {})
 
-  $: date = new Date(date || sys?.publishedAt).toLocaleDateString(`de`)
+  $: localeDate = new Date(date || sys.publishedAt).toLocaleDateString(`de`)
+
   const style = `height: 3ex; vertical-align: bottom; padding-right: 4pt;`
 </script>
 
@@ -32,7 +34,7 @@
     {#if sys?.publishedAt && !slug.includes(`blog`)}
       <time>
         <Update {style} />Zuletzt bearbeitet:
-        {date}
+        {localeDate}
       </time>
       <address>
         <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}">

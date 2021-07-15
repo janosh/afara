@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Tags from '@svicons/fa-solid/tags.svelte'
   import GraduationCap from '@svicons/fa-solid/graduation-cap.svelte'
   import Email from '@svicons/material-sharp/email.svelte'
@@ -7,8 +7,9 @@
 
   import ToolTip from './ToolTip.svelte'
   import Img from './Img.svelte'
+  import type { Post } from '../types'
 
-  export let post
+  export let post: Post
 
   const { title, slug, cover, date, author, tags, plainBody } = post
 
@@ -18,7 +19,9 @@
 </script>
 
 <section>
-  <a href={slug}><Img sizes={[{ w: 400, h: 300 }]} {...cover} {imgStyle} /></a>
+  <a href={slug}>
+    <Img sizes={[{ w: 400, h: 300 }]} {...cover} {imgStyle} />
+  </a>
   <h3><a href={slug}>{title}</a></h3>
   <div>
     <ToolTip>

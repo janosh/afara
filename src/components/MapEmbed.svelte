@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
   import { session } from '$app/stores'
 
-  export let place, title
+  export let place: string
+  export let title: string
 
   const { GOOGLE_MAPS_API_KEY: key } = $session
 

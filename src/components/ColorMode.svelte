@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Modal from './Modal.svelte'
   import { colorMode, colorModeKey } from '../stores'
   import Sun from '@svicons/fa-solid/sun.svelte'
@@ -64,7 +64,7 @@
     },
   }
 
-  const setModeFactory = (mode) => () => {
+  const setModeFactory = (mode: string) => () => {
     open = false
     $colorMode = mode
     applyColors()
@@ -73,7 +73,7 @@
   function applyColors() {
     // If colorMode is `auto` we pick dark or light depending on prefersDark media query.
     const prefersDark = window.matchMedia(`(prefers-color-scheme: dark)`).matches
-    let activeMode
+    let activeMode: `light` | `dark`
     if ($colorMode === `auto`) activeMode = prefersDark ? `dark` : `light`
     else activeMode = $colorMode
 
@@ -106,7 +106,7 @@
 
   let open = false
 
-  const handleKeydown = (event) => {
+  const handleKeydown = (event: KeyboardEvent) => {
     if (!event.ctrlKey) return
     if (event.key === `1`) setModeFactory(`light`)()
     if (event.key === `2`) setModeFactory(`dark`)()

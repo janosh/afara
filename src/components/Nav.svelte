@@ -1,29 +1,32 @@
-<script>
-  import { page } from '$app/stores'
-
+<script lang="ts">
   import { slide } from 'svelte/transition'
   import Menu from '@svicons/heroicons-solid/menu.svelte'
   import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
+  import { page } from '$app/stores'
 
+  import type { NavEntry } from '../types'
   import { onClickOutside } from '../utils/actions'
 
-  export let nav, opaque
+  export let nav: NavEntry[]
+  export let opaque = false
 
   let isOpen = false
-  let activeSubNav = null
-  let viewWidth, hovered
+  let activeSubNav = -1
+  let hovered = -1
+  let viewWidth: number
+
   const close = () => {
     isOpen = false
-    hovered = null
+    hovered = -1
   }
 
-  const setActiveSubNav = (idx) => () => {
+  const setActiveSubNav = (idx: number) => () => {
     if (activeSubNav !== idx) activeSubNav = idx
-    else activeSubNav = null
+    else activeSubNav = -1
   }
 
   // isCurrent needs to be reactive to respond to changes in $page.path
-  $: isCurrent = (url) => {
+  $: isCurrent = (url: string) => {
     if (url === $page.path) return `page`
     if (url !== `/` && $page.path.includes(url)) return `page`
     return undefined
@@ -53,7 +56,7 @@
     {#each nav as { title, url, subNav }, idx}
       <li
         on:mouseenter={() => (hovered = idx)}
-        on:mouseleave={() => (hovered = null)}
+        on:mouseleave={() => (hovered = -1)}
         class:hover={hovered === idx}>
         <a on:click={close} sveltekit:prefetch aria-current={isCurrent(url)} href={url}>
           {title}</a>

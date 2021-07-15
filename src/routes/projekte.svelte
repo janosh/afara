@@ -1,16 +1,20 @@
-<script context="module">
+<script lang="ts" context="module">
   import { fetchYaml } from '../utils/queries'
 
-  export async function load() {
+  export async function load(): Promise<LoadOutput> {
     const projects = await fetchYaml(`Projects`)
-    return { props: { projects } }
+    return {
+      props: { projects },
+    }
   }
 </script>
 
-<script>
+<script lang="ts">
+  import type { LoadOutput } from '@sveltejs/kit'
+
   import Img from '../components/Img.svelte'
 
-  export let projects
+  export let projects: { title: string; slug: string; img: string }[]
 </script>
 
 <h1>Unsere Projekte</h1>
