@@ -1,7 +1,11 @@
-export function onClickOutside(node: HTMLElement, cb?: () => void): { destroy(): void } {
-
+export function onClickOutside(
+  node: HTMLElement,
+  cb?: () => void
+): { destroy(): void } {
   const dispatchOnClickOutside = (event: Event) => {
-    if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+    const clickWasOutside = node && !node.contains(event.target as Node)
+
+    if (clickWasOutside && !event.defaultPrevented) {
       node.dispatchEvent(new CustomEvent(`clickOutside`))
       if (cb) cb()
     }
@@ -10,10 +14,11 @@ export function onClickOutside(node: HTMLElement, cb?: () => void): { destroy():
   document.addEventListener(`click`, dispatchOnClickOutside)
 
   return {
-    destroy: () => document.removeEventListener(`click`, dispatchOnClickOutside),
+    destroy() {
+      document.removeEventListener(`click`, dispatchOnClickOutside)
+    },
   }
 }
-
 
 export function preventOverScroll(node: HTMLElement): { destroy(): void } {
   const preventScroll = (event: Event) => {

@@ -5,8 +5,11 @@
 
   import type { NavEntry } from '../types'
   import Nav from './Nav.svelte'
-  import ColorMode from './ColorMode.svelte'
+  import ModalColorPicker from 'svelte-color-mode/ModalColorPicker.svelte'
+  import ColorMode from 'svelte-color-mode/ColorMode.svelte'
   import SearchHit from './SearchHit.svelte'
+
+  import { colors, colorsByMode } from '../utils/colors'
 
   export let nav: NavEntry[]
 
@@ -29,7 +32,8 @@
 
 <header class:opaque={scrollY > 300}>
   <Nav {nav} opaque={scrollY > 300} />
-  <ColorMode />
+  <ColorMode {colorsByMode} otherColors={colors} />
+  <ModalColorPicker />
   <Search
     {...searchProps}
     --hitsBgColor="var(--bodyBg)"

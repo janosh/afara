@@ -1,4 +1,3 @@
-
 export type Link = {
   title: string
   url: string
@@ -29,7 +28,14 @@ export type Author = {
   fieldOfStudy: string
 }
 
-export const BlogTags = [`Alle`, `Spendenaktionen`, `Vorstand`, `Events`, `Kooperationen`, `Treffen`] as const
+export const BlogTags = [
+  `Alle`,
+  `Spendenaktionen`,
+  `Vorstand`,
+  `Events`,
+  `Kooperationen`,
+  `Treffen`,
+] as const
 
 export type BlogTag = typeof BlogTags[number]
 

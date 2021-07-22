@@ -6,7 +6,7 @@
 
   export let page: Page
 
-  $: ({ title, slug, date, cover, body, yaml, sys } = page || {})
+  $: ({ title, slug, date, cover, body, yaml, sys } = page)
 
   $: localeDate = new Date(date || sys.publishedAt).toLocaleDateString(`de`)
 
