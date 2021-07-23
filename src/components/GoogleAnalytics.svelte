@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // https://analytics.google.com
   import { page } from '$app/stores'
 

@@ -5,7 +5,7 @@ body {
     sans-serif;
   line-height: 1.5;
   font-size: calc(0.8em + 0.5vw);
-  transition: 0.3s;
+  transition: color 0.3s, background-color 0.3s;
   background: var(--bodyBg);
   color: var(--textColor);
 }
@@ -71,9 +71,9 @@ p > :is(picture + em, a + em) {
 
 /* heading links inserted by custom heading renderer in src/utils/marked.js */
 :where(h2, h3, h4, h5, h6) a[aria-hidden='true'] {
-  transition: 0.3s;
   margin-left: 4pt;
   opacity: 0;
+  transition: opacity 0.3s;
 }
 :where(h2, h3, h4, h5, h6):hover a[aria-hidden='true'] {
   opacity: 1;

@@ -56,7 +56,7 @@
     z-index: 2;
     width: 100%;
     box-sizing: border-box;
-    transition: 0.2s;
+    transition: background-color 0.2s;
   }
   header.opaque {
     background: var(--headerBg);

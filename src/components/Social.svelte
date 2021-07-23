@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Facebook from '@svicons/fa-brands/facebook.svelte'
   import Github from '@svicons/fa-brands/github.svelte'
   import Instagram from '@svicons/fa-brands/instagram.svelte'
@@ -8,7 +8,7 @@
   import YouTube from '@svicons/fa-brands/youtube.svelte'
   import Email from '@svicons/material-sharp/email.svelte'
 
-  export let social
+  export let social: Record<keyof typeof icons, string>
   export let style = ``
   export let vertical = false
   export let fixed = false
@@ -19,7 +19,8 @@
 <div {style} class:vertical class:fixed>
   {#each Object.entries(social) as [key, url]}
     <a href={url} aria-label={key}>
-      <svelte:component this={icons[key]} height="3ex" /></a>
+      <svelte:component this={icons[key]} height="3ex" />
+    </a>
   {/each}
 </div>
 
@@ -52,7 +53,7 @@
     }
   }
   a {
-    transition: 0.2s;
+    transition: transform 0.2s;
   }
   a:hover {
     transform: scale(1.04);

@@ -13,7 +13,7 @@
   import StatsChart from '@svicons/ionicons-solid/stats-chart.svelte'
   import type { BlogTag } from '../types'
 
-  export let tags: [BlogTag, number][]
+  export let tagOccurences: [BlogTag, number][]
   export let activeTag = `Alle`
 
   const icons = {
@@ -47,7 +47,7 @@
 </h2>
 {#if windowWidth > 750 || open}
   <ul transition:slide>
-    {#each tags as [tag, count]}
+    {#each tagOccurences as [tag, count]}
       <li>
         <button
           transition:fade
@@ -57,8 +57,8 @@
           <svelte:component
             this={icons[tag]}
             style="height: 2.2ex; vertical-align: -3pt; margin-right: 6pt" />
-          {tag}
-          ({count})</button>
+          {tag} ({count})
+        </button>
       </li>
     {/each}
   </ul>
@@ -85,9 +85,9 @@
     color: var(--textColor);
     border-radius: 4pt;
     padding: 3pt 7pt;
-    transition: 0.4s;
     display: flex;
     align-items: center;
+    transition: color 0.4s, background-color 0.4s;
   }
   ul > li > button.active {
     color: white;

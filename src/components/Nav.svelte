@@ -94,9 +94,9 @@
   }
   a,
   button {
-    transition: 0.4s;
     color: var(--headerColor);
     border-radius: 50%;
+    transition: background-color 0.4s;
   }
   button:hover {
     background: var(--gray);
@@ -132,12 +132,12 @@
       top: 1em;
       left: 1em;
       padding: 1em;
-      transition: 0.4s;
       max-height: calc(100vh - 2em);
       background: var(--headerBg);
       transform: translate(-120%);
       box-sizing: border-box;
       overscroll-behavior: none;
+      transition: transform 0.4s, box-shadow 0.4s;
     }
     nav.isOpen {
       box-shadow: 0 0 1em black;
@@ -176,13 +176,13 @@
       top: 3.5ex;
       visibility: hidden;
       opacity: 0;
-      transition: 0.3s;
       display: grid;
       gap: 5pt 1em;
       width: max-content;
       max-height: 80vh;
       overflow-y: auto;
       overscroll-behavior: none;
+      transition: background-color 0.3s;
     }
     nav.opaque > ul > li > ul {
       background: var(--headerBg);

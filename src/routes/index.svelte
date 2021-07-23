@@ -3,7 +3,9 @@
 
   export async function load(): Promise<LoadOutput> {
     const page = await fetchPage(`/`)
+
     const yaml = await fetchYaml(`Landing Page`)
+
     return { props: { page, yaml } }
   }
 </script>
@@ -14,7 +16,8 @@
   import type { Page, Image } from '../types'
   import Img from '../components/Img.svelte'
 
-  export let page: Page, yaml: { images: Image[]; text: string[] }
+  export let page: Page
+  export let yaml: { images: Image[]; text: string[] }
 
   let windowWidth: number
 

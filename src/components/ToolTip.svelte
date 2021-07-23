@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let maxWidth = `14em`
   export let minWidth = `8em`
 </script>
@@ -23,7 +23,6 @@
     opacity: 0;
     cursor: default;
     background: var(--lightBg);
-    transition: 0.4s;
     position: absolute;
     top: 100%;
     padding: 5pt 1ex;
@@ -33,6 +32,11 @@
     z-index: 1;
     box-shadow: 0 0 1ex -3pt black;
     width: fit-content;
+    transition: opacity 0.4s;
+  }
+  span:hover > div {
+    visibility: visible;
+    opacity: 1;
   }
   span > div::before {
     content: '';
@@ -45,9 +49,5 @@
     border: 1ex solid;
     border-color: transparent transparent var(--lightBg) transparent;
     box-sizing: border-box;
-  }
-  span:hover > div {
-    visibility: visible;
-    opacity: 1;
   }
 </style>
