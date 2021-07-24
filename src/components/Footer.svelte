@@ -6,6 +6,7 @@
   import DocumentText from '@svicons/ionicons-solid/document-text.svelte'
 
   import Social from './Social.svelte'
+  import type { SocialNetwork } from '../types'
 
   const icons = {
     Impressum: Law,
@@ -14,7 +15,7 @@
     Satzung: DocumentText,
   }
 
-  export let social: Record<string, string>
+  export let social: Record<SocialNetwork, string>
   export let links: { title: keyof typeof icons; url: string }[]
   const style = `height: 1em; vertical-align: -3pt; padding-right: 2pt;`
 </script>

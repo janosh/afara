@@ -30,11 +30,12 @@ export type Author = {
 
 export const BlogTags = [
   `Alle`,
-  `Spendenaktionen`,
-  `Vorstand`,
+  `Erfahrungsberichte`,
   `Events`,
   `Kooperationen`,
+  `Spendenaktionen`,
   `Treffen`,
+  `Vorstand`,
 ] as const
 
 export type BlogTag = typeof BlogTags[number]
@@ -58,3 +59,16 @@ export type Image = {
 export type Yaml = {
   [key: string]: unknown
 }
+
+export const SocialNetworks = [
+  `Email`,
+  `Facebook`,
+  `Github`,
+  `Instagram`,
+  `Linkedin`,
+  `Twitter`,
+  `Xing`,
+  `YouTube`,
+] as const
+
+export type SocialNetwork = typeof SocialNetworks[number]

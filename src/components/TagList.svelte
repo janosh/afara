@@ -1,5 +1,6 @@
 <script lang="ts">
   import { slide, fade } from 'svelte/transition'
+  import type { SvelteComponent } from 'svelte'
 
   import Tags from '@svicons/fa-solid/tags.svelte'
   import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
@@ -16,7 +17,7 @@
   export let tagOccurences: [BlogTag, number][]
   export let activeTag = `Alle`
 
-  const icons = {
+  const icons: Record<BlogTag, typeof SvelteComponent> = {
     Alle: SelectAll,
     Spendenaktionen: Euro,
     Vorstand: StatsChart,

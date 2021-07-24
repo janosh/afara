@@ -19,11 +19,11 @@
 
   import type { LoadOutput } from '@sveltejs/kit'
 
-  import type { BlogTag, Post } from '../../types'
+  import type { BlogTag, Post, SocialNetwork } from '../../types'
   import { BlogTags } from '../../types'
 
   export let posts: Post[]
-  export let social
+  export let social: Record<SocialNetwork, string>
 
   let activeTag: BlogTag
   let nVisible = 9
