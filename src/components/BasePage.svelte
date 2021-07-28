@@ -18,32 +18,30 @@
   <meta name="date" content={date} />
 </svelte:head>
 
-{#if page}
-  <figure>
-    <Img {...cover} imgStyle="height: 100%;" />
-    <h1>{title}</h1>
-    {#if yaml?.caption}
-      <figcaption>{@html yaml.caption}</figcaption>
-    {/if}
-  </figure>
-  <slot />
-  <article>
-    {@html body}
-    <slot name="afterBody" />
+<figure>
+  <Img {...cover} imgStyle="height: 100%;" />
+  <h1>{title}</h1>
+  {#if yaml?.caption}
+    <figcaption>{@html yaml.caption}</figcaption>
+  {/if}
+</figure>
+<slot />
+<article>
+  {@html body}
+  <slot name="afterBody" />
 
-    {#if sys?.publishedAt && !slug.includes(`blog`)}
-      <time>
-        <Update {style} />Zuletzt bearbeitet:
-        {localeDate}
-      </time>
-      <address>
-        <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}">
-          Feedback zu dieser Seite?
-        </a>
-      </address>
-    {/if}
-  </article>
-{/if}
+  {#if sys?.publishedAt && !slug.includes(`blog`)}
+    <time>
+      <Update {style} />Zuletzt bearbeitet:
+      {localeDate}
+    </time>
+    <address>
+      <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}">
+        Feedback zu dieser Seite?
+      </a>
+    </address>
+  {/if}
+</article>
 
 <style>
   article {

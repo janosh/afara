@@ -12,14 +12,15 @@
 
 <script lang="ts">
   import type { LoadOutput } from '@sveltejs/kit'
-  import type { NavEntry, Link } from '../types'
 
   import Header from '../components/Header.svelte'
   import Footer from '../components/Footer.svelte'
   import GoogleAnalytics from '../components/GoogleAnalytics.svelte'
 
+  import type { NavEntry } from '../types'
+
   export let nav: NavEntry[]
-  export let footer: { links: Link[] }
+  export let footer: { links: Record<string, string> }
   export let social: Record<string, string>
 </script>
 

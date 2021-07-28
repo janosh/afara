@@ -1,14 +1,14 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
-  import type { Post } from '../types'
+  import type { Page, Post } from '../types'
 
   import Img from './Img.svelte'
 
-  export let hit: Post
+  export let hit: Page | Post
 
   const dispatch = createEventDispatcher()
 
-  $: ({ title, slug, body, cover, date, author } = hit)
+  $: ({ title, slug, body, cover, date } = hit)
   const imgStyle = `max-height: 125px; border-radius: 3pt;`
 </script>
 
@@ -22,7 +22,7 @@
     <a sveltekit:prefetch href={slug} on:click={() => dispatch(`close`)}>{@html title}</a>
   </h3>
   {#if date}<span>{new Date(date).toLocaleDateString(`de`)}</span>{/if}
-  {#if author}<span>{author.name}</span>{/if}
+  {#if `author` in hit}<span>{@html hit.author.name}</span>{/if}
   {#if body}
     <p>
       {@html body}

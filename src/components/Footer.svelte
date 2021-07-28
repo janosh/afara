@@ -16,7 +16,7 @@
   }
 
   export let social: Record<SocialNetwork, string>
-  export let links: { title: keyof typeof icons; url: string }[]
+  export let links: Record<string, string>
   const style = `height: 1em; vertical-align: -3pt; padding-right: 2pt;`
 </script>
 
@@ -27,8 +27,8 @@
   </div>
   <Social {social} style="margin-top: 1ex;" />
   <div>
-    {#each links as { title, url }}
-      <a href={url}>
+    {#each Object.entries(links) as [title, href]}
+      <a {href}>
         <svelte:component this={icons[title]} {style} />
         {title}</a>
     {/each}
