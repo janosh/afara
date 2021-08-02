@@ -2,11 +2,7 @@
   import type { SvelteComponent } from 'svelte'
 
   import Facebook from '@svicons/fa-brands/facebook.svelte'
-  import Github from '@svicons/fa-brands/github.svelte'
   import Instagram from '@svicons/fa-brands/instagram.svelte'
-  import Linkedin from '@svicons/fa-brands/linkedin.svelte'
-  import Twitter from '@svicons/fa-brands/twitter.svelte'
-  import Xing from '@svicons/fa-brands/xing-square.svelte'
   import YouTube from '@svicons/fa-brands/youtube.svelte'
   import Email from '@svicons/material-sharp/email.svelte'
 
@@ -21,11 +17,7 @@
   const icons: Record<SocialNetwork, typeof SvelteComponent> = {
     Email,
     Facebook,
-    Github,
     Instagram,
-    Linkedin,
-    Twitter,
-    Xing,
     YouTube,
   }
 </script>

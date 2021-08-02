@@ -202,15 +202,15 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@sveltejs/adapter-static@^1.0.0-next.13":
-  version "1.0.0-next.13"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.13.tgz#5cba8f2905a5a7b956c2663d73ac02f7eb6da7c4"
-  integrity sha512-zaXJlWK9JfrjrE6nG5etB8kf4DSkbE3H8Ql6gmCk3WjdvpY85a60TMYBU9OK2iunkqpHnPYiMUGEnOGYmWlLYA==
+"@sveltejs/adapter-static@^1.0.0-next.14":
+  version "1.0.0-next.14"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.0-next.14.tgz#ac2fb9fdde7a0d8d3a10ecdc0232a71b2592a59a"
+  integrity sha512-iIQduHB2lmS1nbkC0dDw6alk0+SMmTV9ScDSxjzU8guJ+//cPKHVpqvXRt0Egu8uuv5vOebAUEgD+pzX7LNYJQ==
 
-"@sveltejs/kit@^1.0.0-next.137":
-  version "1.0.0-next.137"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.137.tgz#66a1e956615fb227552a49ed9f8fba44ee8b90e2"
-  integrity sha512-YdcwaN9zWcbz4jLZS4j9/7fNZIVO8WkXDuwGTiKARhOLIuuJAjCvSuOZ3btJdV/ySpizTWX22u632weVPLECdw==
+"@sveltejs/kit@^1.0.0-next.140":
+  version "1.0.0-next.140"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.140.tgz#ea29690298ddc8a0e682f83451a3e9e0b3294365"
+  integrity sha512-mNPtwItLU61JVpYXGAuDBEUlmenMs06lv6xxvhrdIgQlVlizNEebC9E27vdzPtcktxUZJGl4u/Fw3K1CG8Lk2A==
   dependencies:
     "@sveltejs/vite-plugin-svelte" "^1.0.0-next.14"
     cheap-watch "^1.0.3"
@@ -1562,10 +1562,10 @@ svelte-check@^2.2.3:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-color-mode@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/svelte-color-mode/-/svelte-color-mode-0.1.1.tgz#abeb1a6d4fc2c98b57efd97d58fcbc36c32ab0d1"
-  integrity sha512-xpaodC81tW1BJPPqalikRniw7fX0LKcGiA47K3xzjXJq/WRkch3TsRVa63GfrK87fPs6eXzXDTqaxxEGp05Yuw==
+svelte-color-mode@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/svelte-color-mode/-/svelte-color-mode-0.1.2.tgz#224c07b1b5db67410c438cd7818065b71a9831a4"
+  integrity sha512-SoeuvpnVAVrPaM+bXKogpN/ZLSgd5tB/aaMqUkOeJrZbSSsl1vDii1JpMnejSayaQ7FprqSBFRXDwehGN84tEw==
 
 svelte-hmr@^0.14.7:
   version "0.14.7"

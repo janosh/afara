@@ -63,11 +63,7 @@ export type Yaml = {
 export const SocialNetworks = [
   `Email`,
   `Facebook`,
-  `Github`,
   `Instagram`,
-  `Linkedin`,
-  `Twitter`,
-  `Xing`,
   `YouTube`,
 ] as const
 

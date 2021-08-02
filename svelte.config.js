@@ -34,11 +34,6 @@ export default {
   kit: {
     adapter: adapter(),
 
-    prerender: {
-      // onError: `continue`
-      force: true,
-    },
-
     // hydrate the div with id 'svelte' in src/app.html
     // duplicate hydration content on project pages likely coming from this bug https://git.io/JcKv1
     // target: `#svelte`,
