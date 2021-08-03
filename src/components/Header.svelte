@@ -33,7 +33,10 @@
 <header class:opaque={scrollY > 300}>
   <Nav {nav} opaque={scrollY > 300} />
   <ColorMode {colorsByMode} otherColors={colors} />
-  <ModalColorPicker />
+  <ModalColorPicker
+    ariaLabelBtnOpener="Farbmodus öffnen"
+    darkName="Dunkel"
+    lightName="Hell" />
   <Search
     {...searchProps}
     --hitsBgColor="var(--bodyBg)"
