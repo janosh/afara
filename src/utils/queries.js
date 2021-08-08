@@ -136,7 +136,7 @@ async function processPost(post) {
   if (!post) return
   renderBody(post)
 
-  post.slug = `blog/${post.slug}`
+  post.slug = `/blog/${post.slug}`
 
   post.cover.base64 = await base64Thumbnail(post.cover.src)
   return post
