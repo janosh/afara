@@ -166,6 +166,9 @@
     }
     nav > ul > li {
       position: relative;
+      /* extend hover area to reach subnavs */
+      padding-bottom: 1ex;
+      margin-bottom: -1ex;
     }
     nav > ul > li > ul {
       position: absolute;

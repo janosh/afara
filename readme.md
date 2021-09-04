@@ -10,9 +10,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/209f70e1-0a07-4d82-b642-55c77f2af40f/deploy-status)](https://app.netlify.com/sites/afara/deploys)
 [![CI](https://github.com/janosh/afara/workflows/CI/badge.svg)](https://github.com/janosh/afara/actions)
-[![License](https://img.shields.io/github/license/janosh/afara?label=License)](/license)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/janosh/afara/main.svg)](https://results.pre-commit.ci/latest/github/janosh/afara/main)
 ![GitHub repo size](https://img.shields.io/github/repo-size/janosh/afara?label=Repo+Size)
-[![GitHub last commit](https://img.shields.io/github/last-commit/janosh/afara?label=Last+Commit)](https://github.com/janosh/afara/commits/main)
 
 </h3>
 
@@ -30,11 +29,10 @@ Running this site locally requires [`git`](https://git-scm.com) and [`yarn`](htt
    git clone https://github.com/janosh/afara && cd afara
    ```
 
-2. (optional) Setup [`git` hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) by setting `core.hooksPath` and granting execute permission.
+2. (optional) Setup [`pre-commit` hooks](https://pre-commit.com).
 
    ```sh
-   git config core.hooksPath src/utils/gitHooks
-   && chmod -R u+x src/utils/gitHooks
+   pre-commit install
    ```
 
 3. Install dependencies.
