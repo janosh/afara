@@ -14,7 +14,7 @@
   import StatsChart from '@svicons/ionicons-solid/stats-chart.svelte'
   import type { BlogTag } from '../types'
 
-  export let tagOccurences: [BlogTag, number][]
+  export let tagOccurrences: [BlogTag, number][]
   export let activeTag = `Alle`
 
   const icons: Record<BlogTag, typeof SvelteComponent> = {
@@ -48,7 +48,7 @@
 </h2>
 {#if windowWidth > 750 || open}
   <ul transition:slide>
-    {#each tagOccurences as [tag, count]}
+    {#each tagOccurrences as [tag, count]}
       <li>
         <button
           transition:fade
