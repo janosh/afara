@@ -1,15 +1,12 @@
 <script lang="ts">
-  import Search from 'svelte-algolia/Search.svelte'
-
   import { session } from '$app/stores'
-
-  import type { NavEntry } from '../types'
-  import Nav from './Nav.svelte'
-  import ModalColorPicker from 'svelte-color-mode/ModalColorPicker.svelte'
+  import Search from 'svelte-algolia/Search.svelte'
   import ColorMode from 'svelte-color-mode/ColorMode.svelte'
-  import SearchHit from './SearchHit.svelte'
-
+  import ModalColorPicker from 'svelte-color-mode/ModalColorPicker.svelte'
+  import type { NavEntry } from '../types'
   import { colors, colorsByMode } from '../utils/colors'
+  import Nav from './Nav.svelte'
+  import SearchHit from './SearchHit.svelte'
 
   export let nav: NavEntry[]
 
@@ -36,12 +33,14 @@
   <ModalColorPicker
     ariaLabelBtnOpener="Farbmodus öffnen"
     darkName="Dunkel"
-    lightName="Hell" />
+    lightName="Hell"
+  />
   <Search
     {...searchProps}
     --hitsBgColor="var(--bodyBg)"
     --inputColor="white"
-    --iconColor="white" />
+    --iconColor="white"
+  />
 </header>
 
 <style>

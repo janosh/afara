@@ -1,7 +1,11 @@
 <script lang="ts" context="module">
+  import type { Load } from '@sveltejs/kit'
+  import Footer from '../components/Footer.svelte'
+  import Header from '../components/Header.svelte'
+  import type { NavEntry } from '../types'
   import { fetchYaml } from '../utils/queries'
 
-  export async function load(): Promise<LoadOutput> {
+  export const load: Load = async () => {
     const nav = await fetchYaml(`Nav`)
     const footer = await fetchYaml(`Footer`)
     const social = await fetchYaml(`Social`)
@@ -11,13 +15,6 @@
 </script>
 
 <script lang="ts">
-  import type { LoadOutput } from '@sveltejs/kit'
-
-  import Header from '../components/Header.svelte'
-  import Footer from '../components/Footer.svelte'
-
-  import type { NavEntry } from '../types'
-
   export let nav: NavEntry[]
   export let footer: { links: Record<string, string> }
   export let social: Record<string, string>

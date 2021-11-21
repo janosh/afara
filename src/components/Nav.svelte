@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { slide } from 'svelte/transition'
-  import Menu from '@svicons/heroicons-solid/menu.svelte'
-  import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
   import { page } from '$app/stores'
-
+  import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
+  import Menu from '@svicons/heroicons-solid/menu.svelte'
+  import { slide } from 'svelte/transition'
   import type { NavEntry } from '../types'
   import { onClickOutside } from '../utils/actions'
 
@@ -37,7 +36,8 @@
 
 <button
   on:click|preventDefault={() => (isOpen = true)}
-  aria-label="Navigationsmenü öffnen">
+  aria-label="Navigationsmenü öffnen"
+>
   <Menu height="2.9ex" style="vertical-align: middle;" />
 </button>
 
@@ -47,7 +47,8 @@
   class:opaque
   href="/"
   sveltekit:prefetch
-  aria-current={isCurrent(`/`)}>
+  aria-current={isCurrent(`/`)}
+>
   <img src="/favicon.svg" alt="Logo" height="50" width="50" />
 </a>
 
@@ -57,27 +58,32 @@
       <li
         on:mouseenter={() => (hovered = idx)}
         on:mouseleave={() => (hovered = -1)}
-        class:hover={hovered === idx}>
+        class:hover={hovered === idx}
+      >
         <a on:click={close} sveltekit:prefetch aria-current={isCurrent(url)} href={url}>
-          {title}</a>
+          {title}</a
+        >
         {#if subNav}
           <button on:click={setActiveSubNav(idx)} aria-label="Untermenü {title} öffnen">
             <ChevronExpand
               height="1em"
-              style="vertical-align: middle; color: var(--green);" />
+              style="vertical-align: middle; color: var(--green);"
+            />
           </button>
         {/if}
         {#if subNav && (activeSubNav === idx || viewWidth > 1000)}
           <ul
             transition:slide
-            style="grid-template-columns: repeat({Math.ceil(subNav.length / 13)}, 1fr);">
+            style="grid-template-columns: repeat({Math.ceil(subNav.length / 13)}, 1fr);"
+          >
             {#each subNav as { title, url, span }}
               <li class:span>
                 <a
                   on:click={close}
                   sveltekit:prefetch
                   aria-current={isCurrent(url)}
-                  href={url}>{title}</a>
+                  href={url}>{title}</a
+                >
               </li>
             {/each}
           </ul>

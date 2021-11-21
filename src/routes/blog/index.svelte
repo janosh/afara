@@ -1,7 +1,16 @@
 <script lang="ts" context="module">
-  import { fetchYaml, fetchPosts } from '../../utils/queries'
+  import type { Load } from '@sveltejs/kit'
+  import { flip } from 'svelte/animate'
+  import { scale } from 'svelte/transition'
+  import IntersectionObserver from '../../components/IntersectionObserver.svelte'
+  import PostPreview from '../../components/PostPreview.svelte'
+  import Social from '../../components/Social.svelte'
+  import TagList from '../../components/TagList.svelte'
+  import type { BlogTag, Post, SocialNetwork } from '../../types'
+  import { BlogTags } from '../../types'
+  import { fetchPosts, fetchYaml } from '../../utils/queries'
 
-  export async function load(): Promise<LoadOutput> {
+  export const load: Load = async () => {
     const posts = await fetchPosts()
     const social = await fetchYaml(`Social`)
 
@@ -10,18 +19,6 @@
 </script>
 
 <script lang="ts">
-  import { flip } from 'svelte/animate'
-  import { scale } from 'svelte/transition'
-  import PostPreview from '../../components/PostPreview.svelte'
-  import Social from '../../components/Social.svelte'
-  import TagList from '../../components/TagList.svelte'
-  import IntersectionObserver from '../../components/IntersectionObserver.svelte'
-
-  import type { LoadOutput } from '@sveltejs/kit'
-
-  import type { BlogTag, Post, SocialNetwork } from '../../types'
-  import { BlogTags } from '../../types'
-
   export let posts: Post[]
   export let social: Record<SocialNetwork, string>
 

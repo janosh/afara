@@ -1,7 +1,10 @@
 <script lang="ts" context="module">
+  import type { Load } from '@sveltejs/kit'
+  import Img from '../components/Img.svelte'
+  import type { Image, Page } from '../types'
   import { fetchPage, fetchYaml } from '../utils/queries'
 
-  export async function load(): Promise<LoadOutput> {
+  export const load: Load = async () => {
     const page = await fetchPage(`/`)
 
     const yaml = await fetchYaml(`Landing Page`)
@@ -11,11 +14,6 @@
 </script>
 
 <script lang="ts">
-  import type { LoadOutput } from '@sveltejs/kit'
-
-  import type { Page, Image } from '../types'
-  import Img from '../components/Img.svelte'
-
   export let page: Page
   export let yaml: { images: Image[]; text: string[] }
 
@@ -32,7 +30,8 @@
     <Img
       {...img}
       sizes={[{ w: 400 }, { w: 800 }]}
-      pictureStyle="grid-area: img{idx + 1};" />
+      pictureStyle="grid-area: img{idx + 1};"
+    />
   {/each}
   {#each Object.values(yaml.text) as text, idx}
     <div style="grid-area: txt{idx + 1}; background: {colors[idx]};">

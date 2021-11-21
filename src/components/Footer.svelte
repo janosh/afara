@@ -1,12 +1,11 @@
 <script lang="ts">
-  import OpenSource from '@svicons/remix-fill/open-source.svelte'
-  import Law from '@svicons/octicons/law.svelte'
-  import PrivacyTip from '@svicons/material-sharp/privacy-tip.svelte'
-  import AlternateEmail from '@svicons/material-sharp/alternate-email.svelte'
   import DocumentText from '@svicons/ionicons-solid/document-text.svelte'
-
-  import Social from './Social.svelte'
+  import AlternateEmail from '@svicons/material-sharp/alternate-email.svelte'
+  import PrivacyTip from '@svicons/material-sharp/privacy-tip.svelte'
+  import Law from '@svicons/octicons/law.svelte'
+  import OpenSource from '@svicons/remix-fill/open-source.svelte'
   import type { SocialNetwork } from '../types'
+  import Social from './Social.svelte'
 
   const icons = {
     Impressum: Law,
@@ -30,15 +29,15 @@
     {#each Object.entries(links) as [title, href]}
       <a {href}>
         <svelte:component this={icons[title]} {style} />
-        {title}</a>
+        {title}
+      </a>
     {/each}
   </div>
   <span>
     Diese Seite ist
     <a href="https://github.com/janosh/afara">
-      <OpenSource
-        height="2.5ex"
-        style="vertical-align: middle; padding-right: 3pt;" />open source
+      <OpenSource height="2.5ex" style="vertical-align: middle; padding-right: 3pt;" />
+      open source
     </a>
   </span>
 </footer>

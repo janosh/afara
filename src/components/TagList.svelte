@@ -1,17 +1,16 @@
 <script lang="ts">
-  import { slide, fade } from 'svelte/transition'
-  import type { SvelteComponent } from 'svelte'
-
-  import Tags from '@svicons/fa-solid/tags.svelte'
   import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
   import CircleWithCross from '@svicons/entypo/circle-with-cross.svelte'
+  import HandsHelping from '@svicons/fa-solid/hands-helping.svelte'
+  import Tags from '@svicons/fa-solid/tags.svelte'
+  import StatsChart from '@svicons/ionicons-solid/stats-chart.svelte'
+  import BeachAccess from '@svicons/material-sharp/beach-access.svelte'
   import Euro from '@svicons/material-sharp/euro.svelte'
+  import EventAvailable from '@svicons/material-sharp/event-available.svelte'
   import RateReview from '@svicons/material-sharp/rate-review.svelte'
   import SelectAll from '@svicons/material-sharp/select-all.svelte'
-  import EventAvailable from '@svicons/material-sharp/event-available.svelte'
-  import BeachAccess from '@svicons/material-sharp/beach-access.svelte'
-  import HandsHelping from '@svicons/fa-solid/hands-helping.svelte'
-  import StatsChart from '@svicons/ionicons-solid/stats-chart.svelte'
+  import type { SvelteComponent } from 'svelte'
+  import { fade, slide } from 'svelte/transition'
   import type { BlogTag } from '../types'
 
   export let tagOccurrences: [BlogTag, number][]
@@ -54,10 +53,12 @@
           transition:fade
           aria-label="Nach Tag {tag} filtern"
           class:active={activeTag === tag}
-          on:click={() => (activeTag = tag)}>
+          on:click={() => (activeTag = tag)}
+        >
           <svelte:component
             this={icons[tag]}
-            style="height: 2.2ex; vertical-align: -3pt; margin-right: 6pt" />
+            style="height: 2.2ex; vertical-align: -3pt; margin-right: 6pt"
+          />
           {tag} ({count})
         </button>
       </li>

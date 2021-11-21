@@ -1,11 +1,9 @@
 <script lang="ts">
-  import type { SvelteComponent } from 'svelte'
-
   import Facebook from '@svicons/fa-brands/facebook.svelte'
   import Instagram from '@svicons/fa-brands/instagram.svelte'
   import YouTube from '@svicons/fa-brands/youtube.svelte'
   import Email from '@svicons/material-sharp/email.svelte'
-
+  import type { SvelteComponent } from 'svelte'
   import type { SocialNetwork } from '../types'
   import { SocialNetworks } from '../types'
 

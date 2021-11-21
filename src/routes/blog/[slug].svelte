@@ -1,7 +1,13 @@
 <script lang="ts" context="module">
+  import type { Load } from '@sveltejs/kit'
+  import PersonCircle from '@svicons/bootstrap/person-circle.svelte'
+  import Calendar from '@svicons/octicons/calendar.svelte'
+  import Img from '../../components/Img.svelte'
+  import ToolTip from '../../components/ToolTip.svelte'
+  import type { Post } from '../../types'
   import { fetchPost } from '../../utils/queries'
 
-  export async function load({ page }: LoadInput): Promise<LoadOutput> {
+  export const load: Load = async ({ page }) => {
     const post = await fetchPost(page.params.slug)
 
     return {
@@ -11,15 +17,6 @@
 </script>
 
 <script lang="ts">
-  import Calendar from '@svicons/octicons/calendar.svelte'
-  import PersonCircle from '@svicons/bootstrap/person-circle.svelte'
-
-  import type { LoadInput, LoadOutput } from '@sveltejs/kit'
-
-  import ToolTip from '../../components/ToolTip.svelte'
-  import Img from '../../components/Img.svelte'
-  import type { Post } from '../../types'
-
   export let post: Post
 
   $: ({ title, body, cover } = post)
