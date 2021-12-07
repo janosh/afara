@@ -42,11 +42,15 @@
     padding: 2em;
     margin: 2em auto;
   }
-  ul li a {
+  ul > li > a:first-child {
     display: block;
     color: var(--textColor);
+    transition: transform 0.3s;
   }
-  ul li h2 {
+  ul > li > a:first-child:hover {
+    transform: scale(1.01);
+  }
+  ul > li > h2 {
     margin-top: 2pt;
   }
 </style>

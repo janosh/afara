@@ -1,6 +1,5 @@
-/* eslint-disable indent */
-import marked from './marked.js'
 import yaml from 'js-yaml'
+import marked from './marked.js'
 
 export async function contentfulFetch(query) {
   const token = process.env.CONTENTFUL_ACCESS_TOKEN

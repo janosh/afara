@@ -63,7 +63,7 @@
   header.opaque {
     background: var(--headerBg);
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     header {
       font-size: 1.4em;
       gap: 5vw;
@@ -72,7 +72,7 @@
       padding: 3pt 2ex;
     }
   }
-  @media (min-width: 1001px) {
+  @media (min-width: 801px) {
     header {
       padding: 3pt 1ex;
       font-size: 1.2em;

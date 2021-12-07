@@ -71,7 +71,7 @@
             />
           </button>
         {/if}
-        {#if subNav && (activeSubNav === idx || viewWidth > 1000)}
+        {#if subNav && (activeSubNav === idx || viewWidth > 800)}
           <ul
             transition:slide
             style="grid-template-columns: repeat({Math.ceil(subNav.length / 13)}, 1fr);"
@@ -131,7 +131,7 @@
   nav {
     overflow: auto;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     /* mobile styles */
     nav {
       position: fixed;
@@ -164,7 +164,7 @@
       margin-left: 4vw;
     }
   }
-  @media (min-width: 1001px) {
+  @media (min-width: 801px) {
     /* desktop styles */
     nav,
     nav > ul {
