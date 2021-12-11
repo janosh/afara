@@ -28,8 +28,9 @@ main {
   width: 100vw;
   flex: 1;
 }
-main h1 {
+main :where(h1, h2, h3, h4, h5, h6) {
   text-align: center;
+  hyphens: none;
 }
 main img {
   width: 100%;

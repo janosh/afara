@@ -16,9 +16,5 @@
 </script>
 
 <BasePage {page}>
-  <MapEmbed
-    place="Matterstockstraße 17, 97080 Würzburg"
-    title="Kontaktadresse"
-    slot="afterBody"
-  />
+  <MapEmbed query="Afara e.V." title="Kontaktadresse" slot="afterBody" />
 </BasePage>
