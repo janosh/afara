@@ -31,6 +31,7 @@ main {
 main :where(h1, h2, h3, h4, h5, h6) {
   text-align: center;
   hyphens: none;
+  margin-top: 1.6em;
 }
 main img {
   width: 100%;
@@ -63,6 +64,20 @@ blockquote {
 /* increase column width to use available space if not all columns filled */
 .grid.fit {
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+}
+.grid img {
+  object-fit: cover;
+}
+.grid.tall-img-beside-2 p {
+  margin: 0;
+}
+.grid.tall-img-beside-2 > *:first-child {
+  grid-row: span 2;
+  grid-column: 1;
+}
+.grid.tall-img-beside-2 > *:last-child {
+  grid-row: 2;
+  grid-column: 2;
 }
 /* captions */
 p > :is(picture + em, a + em) {

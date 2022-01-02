@@ -1,5 +1,4 @@
 <script lang="ts" context="module">
-  import { dev } from '$app/env'
   import type { ErrorLoad } from '@sveltejs/kit'
 
   export const load: ErrorLoad = ({ error, status }) => ({
@@ -26,7 +25,7 @@
     </p>
   {/if}
 
-  {#if dev && error?.stack}
+  {#if error?.stack}
     <h2>Stack Trace</h2>
     <pre>{error.stack}</pre>
   {/if}

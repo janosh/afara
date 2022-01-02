@@ -113,4 +113,8 @@
     max-width: 40em;
     margin: auto;
   }
+  :global(main :where(h1, h2, h3, h4, h5, h6)) {
+    /* decrease top margin from global.css */
+    margin-top: 1.2em;
+  }
 </style>
