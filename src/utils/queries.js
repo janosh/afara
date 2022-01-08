@@ -23,13 +23,16 @@ export async function contentfulFetch(query) {
   return data
 }
 
-export async function base64Thumbnail(url, type = `jpg`) {
-  const response = await fetch(`${url}?w=15&h=5&q=80`)
-  try {
+export async function base64Thumbnail(url, options = {}) {
+  const { type = `jpg`, w = 10, h = 10 } = options
+
+  const response = await fetch(`${url}?w=${w}&h=${h}&q=80`)
+
+  if (typeof window === `undefined`) {
     // server side (node) https://stackoverflow.com/a/52467372
-    const buffer = await response.buffer()
+    const buffer = Buffer.from(await response.arrayBuffer())
     return `data:image/${type};base64,` + buffer.toString(`base64`)
-  } catch (err) {
+  } else {
     // client side (browser) https://stackoverflow.com/a/20285053
     const blob = await response.blob()
     return await new Promise((resolve, reject) => {

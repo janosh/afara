@@ -48,7 +48,7 @@
 
 <style>
   h1 {
-    font-size: calc(3ex + 2vw);
+    font-size: clamp(2rem, 2rem + 2vw, 3rem);
     margin: 2em 0 0 0;
   }
   .grid {

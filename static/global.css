@@ -4,15 +4,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, 'Helvetica Neue',
     sans-serif;
   line-height: 1.5;
-  font-size: calc(0.8em + 0.5vw);
+  /* https://modern-fluid-typography.vercel.app */
+  font-size: clamp(1rem, 0.5vw + 1rem, 1.6rem);
   transition: color 0.3s, background-color 0.3s;
   background: var(--bodyBg);
   color: var(--textColor);
-}
-@media (min-width: 1600px) {
-  body {
-    font-size: 1.2em;
-  }
 }
 * {
   /* when scrolling elements into view, add margin above so they don't end up hidden by header */
