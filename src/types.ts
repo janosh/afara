@@ -28,7 +28,7 @@ export type Author = {
   fieldOfStudy: string
 }
 
-export const BlogTags = [
+export const blogTags = [
   `Alle`,
   `Erfahrungsberichte`,
   `Events`,
@@ -38,7 +38,7 @@ export const BlogTags = [
   `Vorstand`,
 ] as const
 
-export type BlogTag = typeof BlogTags[number]
+export type BlogTag = typeof blogTags[number]
 
 export type Post = Page & {
   author: Author

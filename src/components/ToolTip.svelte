@@ -6,7 +6,7 @@
 {#if $$slots.tip}
   <span>
     <slot />
-    <div style="min-width: {minWidth}; max-width: {maxWidth};">
+    <div style:min-width={minWidth} style:max-width={maxWidth}>
       <slot name="tip" />
     </div>
   </span>
@@ -22,7 +22,7 @@
     visibility: hidden;
     opacity: 0;
     cursor: default;
-    background: var(--lightBg);
+    background: var(--lighterBg);
     position: absolute;
     top: 100%;
     padding: 5pt 1ex;
@@ -30,7 +30,7 @@
     left: 50%;
     transform: translate(-50%, 1ex);
     z-index: 1;
-    box-shadow: 0 0 1ex -3pt black;
+    box-shadow: 0 0 5pt -3pt black;
     width: fit-content;
     transition: opacity 0.4s;
   }
@@ -47,7 +47,15 @@
     transform: translate(-50%);
     height: 1ex;
     border: 1ex solid;
-    border-color: transparent transparent var(--lightBg) transparent;
+    border-color: transparent transparent var(--lighterBg) transparent;
     box-sizing: border-box;
+  }
+  /* needed to increase the div hover area beyond its top edge across its entire width */
+  span > div::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 100%;
+    height: 1ex;
   }
 </style>

@@ -10,9 +10,9 @@
   export const load: Load = async ({ params }) => {
     const post = await fetchPost(params.slug)
 
-    return {
-      props: { post },
-    }
+    if (!post) return { fallthrough: true }
+
+    return { props: { post } }
   }
 </script>
 

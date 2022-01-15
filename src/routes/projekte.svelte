@@ -5,9 +5,8 @@
 
   export const load: Load = async () => {
     const projects = await fetchYaml(`Projects`)
-    return {
-      props: { projects },
-    }
+
+    return { props: { projects } }
   }
 </script>
 

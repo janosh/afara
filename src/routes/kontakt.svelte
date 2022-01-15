@@ -7,6 +7,7 @@
 
   export const load: Load = async () => {
     const page = await fetchPage(`kontakt`)
+
     return { props: { page } }
   }
 </script>

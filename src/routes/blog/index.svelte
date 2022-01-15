@@ -7,7 +7,7 @@
   import Social from '../../components/Social.svelte'
   import TagList from '../../components/TagList.svelte'
   import type { BlogTag, Post, SocialNetwork } from '../../types'
-  import { BlogTags } from '../../types'
+  import { blogTags } from '../../types'
   import { fetchPosts, fetchYaml } from '../../utils/queries'
 
   export const load: Load = async () => {
@@ -31,11 +31,7 @@
   )
   $: visiblePosts = filteredPosts.slice(0, nVisible)
 
-  const tagCounter = Object.fromEntries(BlogTags.map((tag) => [tag, 0])) as Record<
-    BlogTag,
-    number
-  >
-
+  const tagCounter = Object.fromEntries(blogTags.map((tag) => [tag, 0]))
   tagCounter.Alle = posts.length
 
   // count tag occurrences

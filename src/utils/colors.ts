@@ -24,6 +24,7 @@ export const colors = {
   lightGray: `#e2e2e2`,
   gray: `#2b363f`,
   darkGray: `#1d242a`,
+  darkerGray: `#1d2023`,
 }
 
 export const colorsByMode = {
@@ -33,6 +34,7 @@ export const colorsByMode = {
     hoverColor: colors.lightBlue,
     bodyBg: `white`,
     accentBg: `white`,
+    lighterBg: colors.lighterGray,
     lightBg: colors.lightGray,
     shadow: colors.gray,
     borderColor: colors.lightBlue,
@@ -47,6 +49,7 @@ export const colorsByMode = {
     hoverColor: colors.green,
     bodyBg: colors.darkerBlue,
     accentBg: `black`,
+    lighterBg: colors.darkerGray,
     lightBg: colors.darkGray,
     shadow: `black`,
     borderColor: colors.darkGreen,
