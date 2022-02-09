@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import contentful from 'contentful-management'
-import 'dotenv/config.js'
+// import 'dotenv/config'
 import prettier from 'prettier'
 // Before running any of the functions in this file, first generate a Content Management Token (CMT) at
 // https://app.contentful.com/spaces/<space-id>/api/cma_tokens and add it to your .env
@@ -163,7 +163,7 @@ export async function prettierFormatMd(args) {
 }
 
 // To call functions in this file from the command line, run:
-// node src/utils/contentful.mjs searchStringInContentType arg1=foo arg2=bar
+// node src/contentful.js searchStringInContentType arg1=foo arg2=bar
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   // Module was not imported but called directly

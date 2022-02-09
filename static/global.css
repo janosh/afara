@@ -14,7 +14,8 @@ body {
   /* when scrolling elements into view, add margin above so they don't end up hidden by header */
   scroll-margin-top: 80px;
 }
-#svelte {
+/* outer div = hydration target */
+body > div {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -81,7 +82,7 @@ p > :is(picture + em, a + em) {
   display: block;
 }
 
-/* heading links inserted by custom heading renderer in src/utils/marked.js */
+/* heading links inserted by custom heading renderer in src/marked.ts */
 :where(h2, h3, h4, h5, h6) a[aria-hidden='true'] {
   margin-left: 4pt;
   opacity: 0;

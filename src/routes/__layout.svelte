@@ -3,7 +3,7 @@
   import Footer from '../components/Footer.svelte'
   import Header from '../components/Header.svelte'
   import type { NavEntry } from '../types'
-  import { fetchYaml } from '../utils/queries'
+  import { fetchYaml } from '../fetch'
 
   export const load: Load = async () => {
     const nav = await fetchYaml(`Nav`)

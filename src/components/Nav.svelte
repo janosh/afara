@@ -4,7 +4,7 @@
   import Menu from '@svicons/heroicons-solid/menu.svelte'
   import { slide } from 'svelte/transition'
   import type { NavEntry } from '../types'
-  import { onClickOutside } from '../utils/actions'
+  import { onClickOutside } from '../actions'
 
   export let nav: NavEntry[]
   export let opaque = false

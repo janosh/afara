@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   import type { Load } from '@sveltejs/kit'
   import Img from '../components/Img.svelte'
-  import { fetchYaml } from '../utils/queries'
+  import { fetchYaml } from '../fetch'
 
   export const load: Load = async () => {
     const projects = await fetchYaml(`Projects`)

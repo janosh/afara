@@ -3,7 +3,7 @@
   import BasePage from '../components/BasePage.svelte'
   import MapEmbed from '../components/MapEmbed.svelte'
   import type { Page } from '../types'
-  import { fetchPage } from '../utils/queries'
+  import { fetchPage } from '../fetch'
 
   export const load: Load = async () => {
     const page = await fetchPage(`kontakt`)

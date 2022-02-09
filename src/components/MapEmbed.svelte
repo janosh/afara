@@ -1,12 +1,10 @@
 <script lang="ts">
-  import { session } from '$app/stores'
-
   export let query: string
   export let title: string
 
-  const { GOOGLE_MAPS_API_KEY: key } = $session
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
-  const src = `https://google.com/maps/embed/v1/place?q=${query}&key=${key}`
+  const src = `https://google.com/maps/embed/v1/place?q=${query}&key=${apiKey}`
 </script>
 
 <iframe {title} {src} />

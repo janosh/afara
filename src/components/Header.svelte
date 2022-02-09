@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { session } from '$app/stores'
   import Search from 'svelte-algolia'
   import { ColorMode, ModalColorPicker } from 'svelte-color-mode'
   import type { NavEntry } from '../types'
-  import { colors, colorsByMode } from '../utils/colors'
+  import { colors, colorsByMode } from '../colors'
   import Nav from './Nav.svelte'
   import SearchHit from './SearchHit.svelte'
 
@@ -13,8 +12,8 @@
 
   const searchProps = {
     indices: { Seiten: SearchHit, Posts: SearchHit },
-    appId: $session.ALGOLIA_APP_ID,
-    searchKey: $session.ALGOLIA_SEARCH_KEY,
+    appId: import.meta.env.VITE_ALGOLIA_APP_ID,
+    searchKey: import.meta.env.VITE_ALGOLIA_SEARCH_KEY,
     loadingStr: `Suche läuft...`,
     noResultMsg: (query: string) => `Keine Ergebnisse für '${query}'`,
     resultReporter: (hits: unknown[]) =>

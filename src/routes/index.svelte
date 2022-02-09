@@ -2,7 +2,7 @@
   import type { Load } from '@sveltejs/kit'
   import Img from '../components/Img.svelte'
   import type { Image, Page } from '../types'
-  import { fetchPage, fetchYaml } from '../utils/queries'
+  import { fetchPage, fetchYaml } from '../fetch'
 
   export const load: Load = async () => {
     const page = await fetchPage(`/`)
