@@ -378,7 +378,7 @@ ajv@^6.10.0, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-algoliasearch@^4.12.0:
+algoliasearch@^4.12.1:
   version "4.12.1"
   resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-4.12.1.tgz#574a2c5424c4b6681c026928fb810be2d2ec3924"
   integrity sha512-c0dM1g3zZBJrkzE5GA/Nu1y3fFxx3LCzxKzcmp2dgGS8P4CjszB/l3lsSh2MSrrK1Hn/KV4BlbBMXtYgG1Bfrw==
@@ -1423,12 +1423,12 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-svelte-algolia@^0.2.13:
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/svelte-algolia/-/svelte-algolia-0.2.13.tgz#4a91716fa61ab40a760e2c9906d1dd37b48a6c44"
-  integrity sha512-qx3LyONPMeOnaSCwReuroJQ2+YdZCsTcDbXnmP4BKc42CJaNe3gs+GQ6q2RYoKFqFoaZiMVluE9/8VWorYGazQ==
+svelte-algolia@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/svelte-algolia/-/svelte-algolia-0.2.14.tgz#6360f1bd3da7183792e5499e843a103ac0627fc0"
+  integrity sha512-YJNR2qk7aJzU08afRbuECKPjpHi+d1xLbaBkYfcgC+VuAfLUqdnX2ceINMJOCxsky7v81raaCnWzlGx1my1FYw==
   dependencies:
-    algoliasearch "^4.12.0"
+    algoliasearch "^4.12.1"
 
 svelte-check@^2.4.5:
   version "2.4.5"
