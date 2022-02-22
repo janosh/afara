@@ -9,7 +9,7 @@
 <h3 align="center">
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/209f70e1-0a07-4d82-b642-55c77f2af40f/deploy-status)](https://app.netlify.com/sites/afara/deploys)
-[![CI](https://github.com/janosh/afara/workflows/CI/badge.svg)](https://github.com/janosh/afara/actions)
+[![Lighthouse](https://github.com/janosh/afara/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/janosh/afara/actions/workflows/lighthouse.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/janosh/afara/main.svg)](https://results.pre-commit.ci/latest/github/janosh/afara/main)
 ![GitHub repo size](https://img.shields.io/github/repo-size/janosh/afara?label=Repo+Size)
 

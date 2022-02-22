@@ -17,8 +17,6 @@ const bodyToPlainText =
   }
 
 export const algoliaConfig = {
-  appId: import.meta.env.VITE_ALGOLIA_APP_ID,
-  apiKey: import.meta.env.VITE_ALGOLIA_ADMIN_KEY,
   indices: [
     { name: `Seiten`, getData: bodyToPlainText(fetchPages) },
     { name: `Posts`, getData: bodyToPlainText(fetchPosts) },
