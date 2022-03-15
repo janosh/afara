@@ -5,7 +5,7 @@ import { algoliaConfig } from './algolia'
 const appId = import.meta.env.VITE_ALGOLIA_APP_ID as string
 const apiKey = import.meta.env.VITE_ALGOLIA_ADMIN_KEY as string
 
+// only update Algolia indices on production builds if required env vars are defined
 if (dev === false && appId && apiKey) {
-  // update Algolia search indices on production builds
   indexAlgolia({ ...algoliaConfig, appId, apiKey })
 }

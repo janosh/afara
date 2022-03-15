@@ -31,6 +31,7 @@
       {...img}
       sizes={[{ w: 400 }, { w: 800 }]}
       pictureStyle="grid-area: img{idx + 1};"
+      loading="eager"
     />
   {/each}
   {#each Object.values(yaml.text) as text, idx}

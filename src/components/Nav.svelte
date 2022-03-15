@@ -4,19 +4,19 @@
   import Menu from '@svicons/heroicons-solid/menu.svelte'
   import { slide } from 'svelte/transition'
   import type { NavEntry } from '../types'
-  import { onClickOutside } from '../actions'
 
   export let nav: NavEntry[]
   export let opaque = false
+  export let mobile = false
 
   let isOpen = false
   let activeSubNav = -1
-  let hovered = -1
   let viewWidth: number
+  let node: HTMLElement
 
   const close = () => {
     isOpen = false
-    hovered = -1
+    activeSubNav = -1
   }
 
   const setActiveSubNav = (idx: number) => () => {
@@ -32,11 +32,17 @@
   }
 </script>
 
-<svelte:window bind:innerWidth={viewWidth} />
+<svelte:window
+  bind:innerWidth={viewWidth}
+  on:click={(event) => {
+    if (!node.contains(event.target)) close()
+  }}
+/>
 
 <button
-  on:click|preventDefault={() => (isOpen = true)}
+  on:click|preventDefault|stopPropagation={() => (isOpen = true)}
   aria-label="Navigationsmenü öffnen"
+  style:display={mobile ? `` : `none`}
 >
   <Menu height="2.9ex" style="vertical-align: middle;" />
 </button>
@@ -52,13 +58,13 @@
   <img src="/favicon.svg" alt="Logo" height="50" width="50" />
 </a>
 
-<nav class:isOpen class:opaque use:onClickOutside={close}>
+<nav class:isOpen class:opaque bind:this={node} class={mobile ? `mobile` : `desktop`}>
   <ul>
     {#each nav as { title, url, subNav }, idx}
       <li
-        on:mouseenter={() => (hovered = idx)}
-        on:mouseleave={() => (hovered = -1)}
-        class:hover={hovered === idx}
+        on:mouseenter={mobile ? null : setActiveSubNav(idx)}
+        on:mouseleave={mobile ? null : setActiveSubNav(-1)}
+        class:hover={activeSubNav === idx}
       >
         <a on:click={close} sveltekit:prefetch aria-current={isCurrent(url)} href={url}>
           {title}</a
@@ -131,88 +137,80 @@
   nav {
     overflow: auto;
   }
-  @media (max-width: 800px) {
-    /* mobile styles */
-    nav {
-      position: fixed;
-      top: 1em;
-      left: 1em;
-      padding: 1em;
-      max-height: calc(100vh - 2em);
-      background: var(--headerBg);
-      transform: translate(-120%);
-      box-sizing: border-box;
-      overscroll-behavior: none;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    nav.isOpen {
-      box-shadow: 0 0 1em black;
-      transform: translate(0);
-    }
-    nav > ul {
-      display: grid;
-      grid-gap: 1ex;
-      padding: 0;
-      margin: 0;
-    }
-    nav > ul > li > ul {
-      margin-top: 1ex;
-      list-style: disc;
-    }
-    a.logo {
-      /* needed for centering logo since menu button takes less space than colormode + search */
-      margin-left: 4vw;
-    }
+  /* mobile styles */
+  nav.mobile {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    padding: 1em;
+    max-height: calc(100vh - 2em);
+    background: var(--headerBg);
+    transform: translate(-120%);
+    box-sizing: border-box;
+    overscroll-behavior: none;
+    transition: transform 0.4s, box-shadow 0.4s;
   }
-  @media (min-width: 801px) {
-    /* desktop styles */
-    nav,
-    nav > ul {
-      display: contents;
-    }
-    nav > ul > li {
-      position: relative;
-      /* extend hover area to reach subnavs */
-      padding-bottom: 1ex;
-      margin-bottom: -1ex;
-    }
-    nav > ul > li > ul {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1ex 1em;
-      border-radius: 1ex;
-      box-shadow: 0 0 1em -1ex black;
-      top: 3.5ex;
-      visibility: hidden;
-      opacity: 0;
-      display: grid;
-      gap: 5pt 1em;
-      width: max-content;
-      max-height: 80vh;
-      overflow-y: auto;
-      overscroll-behavior: none;
-      transition: background-color 0.3s;
-    }
-    nav.opaque > ul > li > ul {
-      background: var(--headerBg);
-    }
-    .logo.opaque {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 50%;
-      padding: 1px;
-    }
-    nav > ul > li > ul > li.span {
-      grid-column: 1/-1;
-      border-top: 1px solid var(--headerColor);
-      padding-top: 6pt;
-      margin-top: 6pt;
-    }
-    nav > ul > li.hover > ul {
-      visibility: visible;
-      opacity: 1;
-    }
-    button:first-child {
-      display: none;
-    }
+  nav.mobile.isOpen {
+    box-shadow: 0 0 1em black;
+    transform: translate(0);
+  }
+  nav.mobile > ul {
+    display: grid;
+    grid-gap: 1ex;
+    padding: 0;
+    margin: 0;
+  }
+  nav.mobile > ul > li > ul {
+    margin-top: 1ex;
+    list-style: disc;
+  }
+  a.logo {
+    /* needed for centering logo since menu button takes less space than colormode + search */
+    margin-left: 4vw;
+  }
+  /* desktop styles */
+  nav.desktop,
+  nav.desktop > ul {
+    display: contents;
+  }
+  nav.desktop > ul > li {
+    position: relative;
+    /* extend hover area to reach subnav.desktops */
+    padding-bottom: 1ex;
+    margin-bottom: -1ex;
+  }
+  nav.desktop > ul > li > ul {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1ex 1em;
+    border-radius: 1ex;
+    box-shadow: 0 0 1em -1ex black;
+    top: 3.5ex;
+    visibility: hidden;
+    opacity: 0;
+    display: grid;
+    gap: 5pt 1em;
+    max-height: 80vh;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    transition: background-color 0.3s;
+  }
+  nav.desktop.opaque > ul > li > ul {
+    background: var(--headerBg);
+  }
+  .logo.opaque {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 1px;
+  }
+  nav.desktop > ul > li > ul > li.span {
+    grid-column: 1/-1;
+    border-top: 1px solid var(--headerColor);
+    padding-top: 6pt;
+    margin-top: 6pt;
+  }
+  nav.desktop > ul > li.hover > ul {
+    visibility: visible;
+    opacity: 1;
   }
 </style>

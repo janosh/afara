@@ -7,8 +7,11 @@
   import SearchHit from './SearchHit.svelte'
 
   export let nav: NavEntry[]
+  export let breakpoint = 800
 
   let scrollY: number
+  let innerWidth: number
+  $: mobile = innerWidth < breakpoint
 
   const searchProps = {
     indices: { Seiten: SearchHit, Posts: SearchHit },
@@ -23,10 +26,10 @@
   }
 </script>
 
-<svelte:window bind:scrollY />
+<svelte:window bind:scrollY bind:innerWidth />
 
-<header class:opaque={scrollY > 300}>
-  <Nav {nav} opaque={scrollY > 300} />
+<header class:opaque={scrollY > 300} class={mobile ? `mobile` : `desktop`}>
+  <Nav {nav} opaque={scrollY > 300} {mobile} />
   <ColorMode {colorsByMode} otherColors={colors} />
   <ModalColorPicker
     ariaLabelBtnOpener="Farbmodus öffnen"
@@ -61,20 +64,16 @@
   header.opaque {
     background: var(--headerBg);
   }
-  @media (max-width: 800px) {
-    header {
-      font-size: 1.4em;
-      gap: 5vw;
-      grid-template-columns: auto 1fr auto auto;
-      grid-template-areas: 'nav logo colormode search'; /* switch order of nav and logo*/
-      padding: 3pt 2ex;
-    }
+  header.mobile {
+    font-size: 1.4em;
+    gap: 5vw;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: 'nav logo colormode search'; /* switch order of nav and logo*/
+    padding: 3pt 2ex;
   }
-  @media (min-width: 801px) {
-    header {
-      padding: 3pt 1ex;
-      font-size: 1.2em;
-      display: flex;
-    }
+  header.desktop {
+    padding: 3pt 1ex;
+    font-size: 1.2em;
+    display: flex;
   }
 </style>
