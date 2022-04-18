@@ -29,7 +29,7 @@
 <svelte:window bind:scrollY bind:innerWidth />
 
 <header class:opaque={scrollY > 300} class={mobile ? `mobile` : `desktop`}>
-  <Nav {nav} opaque={scrollY > 300} {mobile} />
+  <Nav links={nav} opaque={scrollY > 300} {mobile} />
   <ColorMode {colorsByMode} otherColors={colors} />
   <ModalColorPicker
     ariaLabelBtnOpener="Farbmodus öffnen"

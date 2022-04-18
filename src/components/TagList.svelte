@@ -1,7 +1,7 @@
 <script lang="ts">
   import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
   import CircleWithCross from '@svicons/entypo/circle-with-cross.svelte'
-  import HandsHelping from '@svicons/fa-solid/hands-helping.svelte'
+  import HandsHelping from '@svicons/fa-solid/hands-holding.svelte'
   import Tags from '@svicons/fa-solid/tags.svelte'
   import StatsChart from '@svicons/ionicons-solid/stats-chart.svelte'
   import BeachAccess from '@svicons/material-sharp/beach-access.svelte'

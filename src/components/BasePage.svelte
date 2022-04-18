@@ -68,6 +68,7 @@
     transform: translate(calc(-50% - 1em), -50%);
     text-align: center;
     margin: 0 1em;
+    box-sizing: border-box;
     width: max-content;
     max-width: 80vw;
   }

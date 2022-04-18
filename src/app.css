@@ -10,10 +10,6 @@ body {
   background: var(--bodyBg);
   color: var(--textColor);
 }
-* {
-  /* when scrolling elements into view, add margin above so they don't end up hidden by header */
-  scroll-margin-top: 80px;
-}
 /* outer div = hydration target */
 body > div {
   display: flex;
@@ -26,6 +22,7 @@ main {
   flex: 1;
 }
 main :where(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 80px;
   text-align: center;
   hyphens: none;
   margin-top: 1.6em;

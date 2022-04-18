@@ -5,14 +5,14 @@
   import { slide } from 'svelte/transition'
   import type { NavEntry } from '../types'
 
-  export let nav: NavEntry[]
+  export let links: NavEntry[]
   export let opaque = false
   export let mobile = false
 
   let isOpen = false
   let activeSubNav = -1
   let viewWidth: number
-  let node: HTMLElement
+  let nav: HTMLElement
 
   const close = () => {
     isOpen = false
@@ -35,7 +35,7 @@
 <svelte:window
   bind:innerWidth={viewWidth}
   on:click={(event) => {
-    if (!node.contains(event.target)) close()
+    if (!nav.contains(event.target)) close()
   }}
 />
 
@@ -58,9 +58,9 @@
   <img src="/favicon.svg" alt="Logo" height="50" width="50" />
 </a>
 
-<nav class:isOpen class:opaque bind:this={node} class={mobile ? `mobile` : `desktop`}>
+<nav class:isOpen class:opaque bind:this={nav} class={mobile ? `mobile` : `desktop`}>
   <ul>
-    {#each nav as { title, url, subNav }, idx}
+    {#each links as { title, url, subNav }, idx}
       <li
         on:mouseenter={mobile ? null : setActiveSubNav(idx)}
         on:mouseleave={mobile ? null : setActiveSubNav(-1)}
