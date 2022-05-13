@@ -1,9 +1,9 @@
 <script lang="ts">
-  import DocumentText from '@svicons/ionicons-solid/document-text.svelte'
-  import AlternateEmail from '@svicons/material-sharp/alternate-email.svelte'
-  import PrivacyTip from '@svicons/material-sharp/privacy-tip.svelte'
-  import Law from '@svicons/octicons/law.svelte'
-  import OpenSource from '@svicons/remix-fill/open-source.svelte'
+  import AlternateEmail from '~icons/ic/round-alternate-email'
+  import PrivacyTip from '~icons/ic/round-privacy-tip'
+  import DocumentText from '~icons/ic/round-text-snippet'
+  import OpenSource from '~icons/mdi/open-source-initiative'
+  import Law from '~icons/octicon/law'
   import type { SocialNetwork } from '../types'
   import Social from './Social.svelte'
 

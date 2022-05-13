@@ -1,6 +1,6 @@
 <script lang="ts">
-  import PersonCircle from '@svicons/bootstrap/person-circle.svelte'
-  import Calendar from '@svicons/octicons/calendar.svelte'
+  import PersonCircle from '~icons/bi/person-circle'
+  import Calendar from '~icons/octicon/calendar'
   import Img from '../../components/Img.svelte'
   import ToolTip from '../../components/ToolTip.svelte'
   import type { Post } from '../../types'

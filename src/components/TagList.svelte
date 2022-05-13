@@ -1,16 +1,16 @@
 <script lang="ts">
-  import ChevronExpand from '@svicons/bootstrap/chevron-expand.svelte'
-  import CircleWithCross from '@svicons/entypo/circle-with-cross.svelte'
-  import HandsHelping from '@svicons/fa-solid/hands-holding.svelte'
-  import Tags from '@svicons/fa-solid/tags.svelte'
-  import StatsChart from '@svicons/ionicons-solid/stats-chart.svelte'
-  import BeachAccess from '@svicons/material-sharp/beach-access.svelte'
-  import Euro from '@svicons/material-sharp/euro.svelte'
-  import EventAvailable from '@svicons/material-sharp/event-available.svelte'
-  import RateReview from '@svicons/material-sharp/rate-review.svelte'
-  import SelectAll from '@svicons/material-sharp/select-all.svelte'
   import type { SvelteComponent } from 'svelte'
   import { fade, slide } from 'svelte/transition'
+  import ChevronExpand from '~icons/bi/chevron-expand'
+  import HandsHelping from '~icons/fa-solid/hands-helping'
+  import Tags from '~icons/fa-solid/tags'
+  import BeachAccess from '~icons/ic/beach-access'
+  import EventAvailable from '~icons/ic/event-available'
+  import RateReview from '~icons/ic/rate-review'
+  import CloseCross from '~icons/ic/round-close'
+  import Euro from '~icons/ic/round-euro'
+  import StatsChart from '~icons/ic/round-query-stats'
+  import SelectAll from '~icons/ic/select-all'
   import type { BlogTag } from '../types'
 
   export let tagOccurrences: [BlogTag, number][]
@@ -38,7 +38,7 @@
   {#if windowWidth < 750}
     <button on:click={() => (open = !open)} aria-label="Blog Tags öffnen">
       {#if open}
-        <CircleWithCross {style} />
+        <CloseCross {style} />
       {:else}
         <ChevronExpand {style} />
       {/if}
