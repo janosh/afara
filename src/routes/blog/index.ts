@@ -1,7 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit'
 import { fetchPosts, fetchYaml } from '../../fetch'
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
   const posts = await fetchPosts()
   const social = await fetchYaml(`Social`)
 
