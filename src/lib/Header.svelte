@@ -1,10 +1,10 @@
 <script lang="ts">
   import Search from 'svelte-algolia'
   import { ColorMode, ModalColorPicker } from 'svelte-color-mode'
-  import type { NavEntry } from '../types'
   import { colors, colorsByMode } from '../colors'
   import Nav from './Nav.svelte'
   import SearchHit from './SearchHit.svelte'
+  import type { NavEntry } from './types'
 
   export let nav: NavEntry[]
   export let breakpoint = 800

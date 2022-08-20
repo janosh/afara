@@ -4,8 +4,8 @@
   import DocumentText from '~icons/ic/round-text-snippet'
   import OpenSource from '~icons/mdi/open-source-initiative'
   import Law from '~icons/octicon/law'
-  import type { SocialNetwork } from '../types'
   import Social from './Social.svelte'
+  import type { SocialNetwork } from './types'
 
   const icons = {
     Impressum: Law,

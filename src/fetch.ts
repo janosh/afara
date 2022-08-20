@@ -1,6 +1,6 @@
 import yaml from 'js-yaml'
+import type { Page, Post } from './lib/types'
 import marked from './marked'
-import type { Page, Post } from './types'
 
 export async function contentfulFetch(query: string) {
   const token = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN

@@ -4,9 +4,9 @@
   import Email from '~icons/ic/round-email'
   import Link from '~icons/ic/round-link'
   import Calendar from '~icons/octicon/calendar'
-  import type { Post } from '../types'
   import Img from './Img.svelte'
   import ToolTip from './ToolTip.svelte'
+  import type { Post } from './types'
 
   export let post: Post
 

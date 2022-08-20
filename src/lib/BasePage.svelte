@@ -1,7 +1,7 @@
 <script lang="ts">
   import Update from '~icons/ic/update'
-  import Img from '../components/Img.svelte'
-  import type { Page } from '../types'
+  import Img from './Img.svelte'
+  import type { Page } from './types'
 
   export let page: Page
 

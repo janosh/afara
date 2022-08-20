@@ -1,21 +1,9 @@
-<script lang="ts" context="module">
-  import type { Load } from '@sveltejs/kit'
-  import Img from '../components/Img.svelte'
-  import type { Image, Page } from '../types'
-  import { fetchPage, fetchYaml } from '../fetch'
-
-  export const load: Load = async () => {
-    const page = await fetchPage(`/`)
-
-    const yaml = await fetchYaml(`Landing Page`)
-
-    return { props: { page, yaml } }
-  }
-</script>
-
 <script lang="ts">
-  export let page: Page
-  export let yaml: { images: Image[]; text: string[] }
+  import Img from '$lib/Img.svelte'
+  import type { PageData } from './$types'
+
+  export let data: PageData
+  $: ({ page, yaml } = data)
 
   let windowWidth: number
 

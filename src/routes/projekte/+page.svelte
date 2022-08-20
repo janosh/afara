@@ -1,17 +1,9 @@
-<script lang="ts" context="module">
-  import type { Load } from '@sveltejs/kit'
-  import Img from '../components/Img.svelte'
-  import { fetchYaml } from '../fetch'
-
-  export const load: Load = async () => {
-    const projects = await fetchYaml(`Projects`)
-
-    return { props: { projects } }
-  }
-</script>
-
 <script lang="ts">
-  export let projects: { title: string; slug: string; img: string }[]
+  import Img from '$lib/Img.svelte'
+  import type { PageData } from './$types'
+
+  export let data: PageData
+  $: ({ projects } = data)
 </script>
 
 <h1>Unsere Projekte</h1>

@@ -4,8 +4,8 @@
   import Instagram from '~icons/fa-brands/instagram'
   import YouTube from '~icons/fa-brands/youtube'
   import Email from '~icons/ic/round-email'
-  import type { SocialNetwork } from '../types'
-  import { SocialNetworks } from '../types'
+  import type { SocialNetwork } from './types'
+  import { SocialNetworks } from './types'
 
   export let social: Record<SocialNetwork, string>
   export let style = ``

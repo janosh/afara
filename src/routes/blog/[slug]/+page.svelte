@@ -1,11 +1,12 @@
 <script lang="ts">
+  import Img from '$lib/Img.svelte'
+  import ToolTip from '$lib/ToolTip.svelte'
   import PersonCircle from '~icons/bi/person-circle'
   import Calendar from '~icons/octicon/calendar'
-  import Img from '../../components/Img.svelte'
-  import ToolTip from '../../components/ToolTip.svelte'
-  import type { Post } from '../../types'
+  import type { PageData } from './$types'
 
-  export let post: Post
+  export let data: PageData
+  $: ({ post } = data)
 
   $: ({ title, body, cover } = post)
   $: ({ bio, name, photo, url } = post.author)

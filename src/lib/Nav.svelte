@@ -3,7 +3,7 @@
   import { slide } from 'svelte/transition'
   import ChevronExpand from '~icons/bi/chevron-expand'
   import Menu from '~icons/ic/round-menu'
-  import type { NavEntry } from '../types'
+  import type { NavEntry } from './types'
 
   export let links: NavEntry[]
   export let opaque = false

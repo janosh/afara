@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { blogTags } from '$lib/types'
   import type { SvelteComponent } from 'svelte'
   import { fade, slide } from 'svelte/transition'
   import ChevronExpand from '~icons/bi/chevron-expand'
@@ -11,11 +12,20 @@
   import Euro from '~icons/ic/round-euro'
   import StatsChart from '~icons/ic/round-query-stats'
   import SelectAll from '~icons/ic/select-all'
-  import type { BlogTag } from '../types'
+  import type { BlogTag, Post } from './types'
 
-  export let tagOccurrences: [BlogTag, number][]
+  export let posts: Post[]
   export let activeTag = `Alle`
 
+  const tagCounter = Object.fromEntries(blogTags.map((tag) => [tag, 0]))
+
+  // count tag occurrences
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      tagCounter[tag] += 1
+    }
+  }
+  tagCounter.Alle = posts.length
   const icons: Record<BlogTag, typeof SvelteComponent> = {
     Alle: SelectAll,
     Spendenaktionen: Euro,
@@ -47,7 +57,7 @@
 </h2>
 {#if windowWidth > 750 || open}
   <ul transition:slide>
-    {#each tagOccurrences as [tag, count]}
+    {#each Object.entries(tagCounter) as [tag, count]}
       <li>
         <button
           transition:fade
