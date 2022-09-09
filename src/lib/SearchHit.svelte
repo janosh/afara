@@ -13,12 +13,14 @@
 
 <div>
   {#if cover.src}
-    <a sveltekit:prefetch href={slug} on:click={() => dispatch(`close`)}>
+    <a data-sveltekit-prefetch href={slug} on:click={() => dispatch(`close`)}>
       <Img {...cover} sizes={[{ w: 150 }]} {imgStyle} />
     </a>
   {/if}
   <h3>
-    <a sveltekit:prefetch href={slug} on:click={() => dispatch(`close`)}>{@html title}</a>
+    <a data-sveltekit-prefetch href={slug} on:click={() => dispatch(`close`)}>
+      {@html title}
+    </a>
   </h3>
   {#if date}<span>{new Date(date).toLocaleDateString(`de`)}</span>{/if}
   {#if `author` in hit}<span>{@html hit.author.name}</span>{/if}
@@ -31,11 +33,9 @@
 
 <style>
   div {
-    background: var(--accentBg);
     padding: 1ex 1em;
     border-radius: 5pt;
     margin: 1em 0;
-    background: var(--accentBg);
   }
   div > h3 {
     margin-top: 0;

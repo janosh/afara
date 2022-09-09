@@ -82,7 +82,7 @@
     color: white;
   }
   figcaption :global(a) {
-    color: var(--lightBlue);
+    color: var(--light-blue);
   }
   time {
     display: block;

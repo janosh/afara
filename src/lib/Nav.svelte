@@ -52,7 +52,7 @@
   class="logo"
   class:opaque
   href="/"
-  sveltekit:prefetch
+  data-sveltekit-prefetch
   aria-current={isCurrent(`/`)}
 >
   <img src="/favicon.svg" alt="Logo" height="50" width="50" />
@@ -66,7 +66,12 @@
         on:mouseleave={mobile ? null : setActiveSubNav(-1)}
         class:hover={activeSubNav === idx}
       >
-        <a on:click={close} sveltekit:prefetch aria-current={isCurrent(url)} href={url}>
+        <a
+          on:click={close}
+          data-sveltekit-prefetch
+          aria-current={isCurrent(url)}
+          href={url}
+        >
           {title}</a
         >
         {#if subNav}
@@ -86,7 +91,7 @@
               <li class:span>
                 <a
                   on:click={close}
-                  sveltekit:prefetch
+                  data-sveltekit-prefetch
                   aria-current={isCurrent(url)}
                   href={url}>{title}</a
                 >
@@ -106,7 +111,7 @@
   }
   a,
   button {
-    color: var(--headerColor);
+    color: white;
     border-radius: 50%;
     transition: background-color 0.4s;
   }
@@ -114,7 +119,7 @@
     background: var(--gray);
   }
   a:hover {
-    color: var(--hoverColor);
+    color: var(--hover-color);
   }
   a[aria-current] {
     color: var(--orange);
@@ -129,7 +134,7 @@
     list-style: none;
   }
   li::marker {
-    color: var(--headerColor);
+    color: white;
   }
   nav > ul > li > ul {
     padding-left: 2ex;
@@ -163,10 +168,6 @@
   nav.mobile > ul > li > ul {
     margin-top: 1ex;
     list-style: disc;
-  }
-  a.logo {
-    /* needed for centering logo since menu button takes less space than colormode + search */
-    margin-left: 4vw;
   }
   /* desktop styles */
   nav.desktop,
@@ -205,7 +206,7 @@
   }
   nav.desktop > ul > li > ul > li.span {
     grid-column: 1/-1;
-    border-top: 1px solid var(--headerColor);
+    border-top: 1px solid white;
     padding-top: 6pt;
     margin-top: 6pt;
   }

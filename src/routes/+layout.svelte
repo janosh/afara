@@ -3,6 +3,7 @@
   import Header from '$lib/Header.svelte'
   import '../app.css'
   import type { LayoutData } from './$types'
+
   export let data: LayoutData
   $: ({ nav, footer, social } = data)
 </script>

@@ -42,7 +42,6 @@
   div.fixed {
     position: fixed;
     z-index: 1;
-    background: var(--accentBg);
     padding: 1ex;
   }
   div.fixed.vertical {

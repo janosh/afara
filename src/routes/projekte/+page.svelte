@@ -35,7 +35,6 @@
   }
   ul > li > a:first-child {
     display: block;
-    color: var(--textColor);
     transition: transform 0.3s;
   }
   ul > li > a:first-child:hover {

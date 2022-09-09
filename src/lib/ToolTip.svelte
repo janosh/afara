@@ -22,7 +22,7 @@
     visibility: hidden;
     opacity: 0;
     cursor: default;
-    background: var(--lighterBg);
+    background: var(--light-gray);
     position: absolute;
     top: 100%;
     padding: 5pt 1ex;
@@ -47,7 +47,7 @@
     transform: translate(-50%);
     height: 1ex;
     border: 1ex solid;
-    border-color: transparent transparent var(--lighterBg) transparent;
+    border-color: transparent transparent var(--light-gray) transparent;
     box-sizing: border-box;
   }
   /* needed to increase the div hover area beyond its top edge across its entire width */

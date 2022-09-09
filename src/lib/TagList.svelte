@@ -94,7 +94,6 @@
   }
   ul > li > button {
     background: var(--lightBg);
-    color: var(--textColor);
     border-radius: 4pt;
     padding: 3pt 7pt;
     display: flex;
@@ -103,6 +102,6 @@
   }
   ul > li > button.active {
     color: white;
-    background: var(--darkGreen);
+    background: var(--dark-green);
   }
 </style>

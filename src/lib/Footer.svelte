@@ -49,15 +49,15 @@
     display: grid;
     gap: 2em;
     place-items: center;
-    background: var(--darkGray);
+    background: var(--dark-gray);
     color: white;
     padding-inline: max(1em, calc(50vw - 30em));
   }
   footer :global(a) {
-    color: var(--lightGreen);
+    color: var(--light-green);
   }
   footer :global(a:hover) {
-    color: var(--darkOrange);
+    color: var(--dark-orange);
   }
   footer div {
     margin: auto;

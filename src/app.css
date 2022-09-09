@@ -1,3 +1,24 @@
+:root {
+  --blue: #0039c1;
+  --light-blue: #42a7ff;
+
+  --green: #81ad46;
+  --dark-green: #4d8711;
+  --light-green: #0fc5b6;
+
+  --yellow: #ffac4d;
+
+  --orange: #ecb517;
+  --dark-orange: #d88100;
+
+  --light-gray: #e2e2e2;
+  --gray: #2b363f;
+  --dark-gray: #1d242a;
+
+  --link-color: vars(--blue);
+  --hover-color: vars(--light-blue);
+}
+
 body {
   overflow-x: hidden;
   margin: 0;
@@ -7,8 +28,6 @@ body {
   /* https://modern-fluid-typography.vercel.app */
   font-size: clamp(1rem, 0.5vw + 1rem, 1.6rem);
   transition: color 0.3s, background-color 0.3s;
-  background: var(--bodyBg);
-  color: var(--textColor);
 }
 /* outer div = hydration target */
 body > div {
@@ -34,11 +53,11 @@ p {
   text-align: justify;
 }
 a {
-  color: var(--linkColor);
+  color: var(--link-color);
   text-decoration: none;
 }
 a:hover {
-  color: var(--hoverColor);
+  color: var(--hover-color);
 }
 button {
   background: transparent;
@@ -47,7 +66,7 @@ button {
   cursor: pointer;
 }
 blockquote {
-  border-left: 3pt solid var(--linkColor);
+  border-left: 3pt solid var(--link-color);
   padding-left: 1em;
   margin: 1ex;
   background: var(--lightBg);
