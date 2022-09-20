@@ -1,9 +1,5 @@
 <script lang="ts">
-  import type { SvelteComponent } from 'svelte'
-  import Facebook from '~icons/fa-brands/facebook'
-  import Instagram from '~icons/fa-brands/instagram'
-  import YouTube from '~icons/fa-brands/youtube'
-  import Email from '~icons/ic/round-email'
+  import Icon from '@iconify/svelte'
   import type { SocialNetwork } from './types'
   import { SocialNetworks } from './types'
 
@@ -12,18 +8,18 @@
   export let vertical = false
   export let fixed = false
 
-  const icons: Record<SocialNetwork, typeof SvelteComponent> = {
-    Email,
-    Facebook,
-    Instagram,
-    YouTube,
+  const icon_map: Record<SocialNetwork, string> = {
+    Facebook: `fa-brands:facebook`,
+    Instagram: `fa-brands:instagram`,
+    YouTube: `fa-brands:youtube`,
+    Email: `ic:round-email`,
   }
 </script>
 
 <div {style} class:vertical class:fixed>
   {#each SocialNetworks as key}
     <a href={social[key]} aria-label={key}>
-      <svelte:component this={icons[key]} height="3ex" />
+      <Icon icon={icon_map[key]} height="3ex" />
     </a>
   {/each}
 </div>

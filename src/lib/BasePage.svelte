@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Update from '~icons/ic/update'
+  import Icon from '@iconify/svelte'
   import Img from './Img.svelte'
   import type { Page } from './types'
 
@@ -31,7 +31,7 @@
 
   {#if sys?.publishedAt && !slug.includes(`blog`)}
     <time>
-      <Update {style} />Zuletzt bearbeitet:
+      <Icon icon="ic:update" inline {style} />Zuletzt bearbeitet:
       {localeDate}
     </time>
     <address>

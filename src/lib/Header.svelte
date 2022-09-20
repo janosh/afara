@@ -7,7 +7,6 @@
   export let nav: NavEntry[]
   export let breakpoint = 800
 
-  let scrollY: number
   let innerWidth: number
   $: mobile = innerWidth < breakpoint
 
@@ -24,11 +23,11 @@
   }
 </script>
 
-<svelte:window bind:scrollY bind:innerWidth />
+<svelte:window bind:innerWidth />
 
-<header class:opaque={scrollY > 300} class={mobile ? `mobile` : `desktop`}>
-  <Nav links={nav} opaque={scrollY > 300} {mobile} />
-  <Search {...searchProps} --inputColor="white" --iconColor="white" />
+<header class={mobile ? `mobile` : `desktop`}>
+  <Nav links={nav} {mobile} />
+  <Search {...searchProps} --search-input-color="white" --search-icon-color="white" />
 </header>
 
 <style>
@@ -41,15 +40,12 @@
     position: fixed;
     top: 0;
     font-weight: 300;
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--dark-orange);
     box-shadow: 0 0 1ex black;
     z-index: 2;
     width: 100%;
     box-sizing: border-box;
     transition: background-color 0.2s;
-  }
-  header.opaque {
-    background: var(--headerBg);
   }
   header.mobile {
     font-size: 1.4em;

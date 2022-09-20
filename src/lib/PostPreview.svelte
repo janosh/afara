@@ -1,9 +1,5 @@
 <script lang="ts">
-  import GraduationCap from '~icons/fa-solid/graduation-cap'
-  import Tags from '~icons/fa-solid/tags'
-  import Email from '~icons/ic/round-email'
-  import Link from '~icons/ic/round-link'
-  import Calendar from '~icons/octicon/calendar'
+  import Icon from '@iconify/svelte'
   import Img from './Img.svelte'
   import ToolTip from './ToolTip.svelte'
   import type { Post } from './types'
@@ -32,20 +28,28 @@
       />{author.name}
       <address slot="tip">
         {#if author.url}
-          <a href={author.url}><Link {style} />{author.url}</a>
+          <a href={author.url}><Icon icon="ic:round-link" {style} />{author.url}</a>
           <br />
         {/if}
         {#if author.email}
-          <a href="mailto:{author.email}"><Email {style} />{author.email}</a>
+          <a href="mailto:{author.email}">
+            <Icon icon="ic:round-email" {style} />{author.email}
+          </a>
           <br />
         {/if}
         {#if author.fieldOfStudy}
-          <GraduationCap {style} />{author.fieldOfStudy}
+          <Icon icon="fa-solid:graduation-cap" {style} />
+          {author.fieldOfStudy}
         {/if}
       </address>
     </ToolTip>
-    <span><Calendar {style} />{new Date(date).toLocaleDateString(`de`)}</span>
-    <span><Tags {style} />{tags.join(`, `)}</span>
+    <span>
+      <Icon icon="octicon:calendar" {style} />
+      {new Date(date).toLocaleDateString(`de`)}
+    </span>
+    <span>
+      <Icon icon="fa-solid:tags" {style} />{tags.join(`, `)}
+    </span>
   </div>
   <p>
     {plainBody.slice(0, 150) + `...`}

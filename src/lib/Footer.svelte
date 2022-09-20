@@ -1,17 +1,13 @@
 <script lang="ts">
-  import AlternateEmail from '~icons/ic/round-alternate-email'
-  import PrivacyTip from '~icons/ic/round-privacy-tip'
-  import DocumentText from '~icons/ic/round-text-snippet'
-  import OpenSource from '~icons/mdi/open-source-initiative'
-  import Law from '~icons/octicon/law'
+  import Icon from '@iconify/svelte'
   import Social from './Social.svelte'
   import type { SocialNetwork } from './types'
 
-  const icons = {
-    Impressum: Law,
-    Datenschutz: PrivacyTip,
-    Kontakt: AlternateEmail,
-    Satzung: DocumentText,
+  const icon_map = {
+    Datenschutz: `ic:round-privacy-tip`,
+    Impressum: `octicon:law`,
+    Kontakt: `ic:round-alternate-email`,
+    Satzung: `ic:round-text-snippet`,
   }
 
   export let social: Record<SocialNetwork, string>
@@ -28,7 +24,7 @@
   <div>
     {#each Object.entries(links) as [title, href]}
       <a {href}>
-        <svelte:component this={icons[title]} {style} />
+        <Icon icon={icon_map[title]} {style} />
         {title}
       </a>
     {/each}
@@ -36,7 +32,7 @@
   <span>
     Diese Seite ist
     <a href="https://github.com/janosh/afara">
-      <OpenSource height="2.5ex" style="vertical-align: middle; padding-right: 3pt;" />
+      <Icon icon="mdi:open-source-initiative" inline />
       open source
     </a>
   </span>

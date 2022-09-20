@@ -1,8 +1,7 @@
 <script lang="ts">
   import Img from '$lib/Img.svelte'
   import ToolTip from '$lib/ToolTip.svelte'
-  import PersonCircle from '~icons/bi/person-circle'
-  import Calendar from '~icons/octicon/calendar'
+  import Icon from '@iconify/svelte'
   import type { PageData } from './$types'
 
   export let data: PageData
@@ -22,16 +21,16 @@
       von
       {#if bio}
         <ToolTip minWidth="18em">
-          <PersonCircle {style} />
+          <Icon icon="bi:person-circle" {style} />
           <strong><a href={url}>{name}</a></strong>
           <span slot="tip">{bio}</span>
         </ToolTip>
       {:else}
-        <PersonCircle {style} />
+        <Icon icon="bi:person-circle" {style} />
         <strong>{name}</strong>
       {/if}
       am
-      <Calendar {style} />
+      <Icon icon="octicon:calendar" {style} />
       <strong>{new Date(post.date).toLocaleDateString(`de`)}</strong>
     </span>
   </section>

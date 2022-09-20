@@ -1,17 +1,7 @@
 <script lang="ts">
   import { blogTags } from '$lib/types'
-  import type { SvelteComponent } from 'svelte'
+  import Icon from '@iconify/svelte'
   import { fade, slide } from 'svelte/transition'
-  import ChevronExpand from '~icons/bi/chevron-expand'
-  import HandsHelping from '~icons/fa-solid/hands-helping'
-  import Tags from '~icons/fa-solid/tags'
-  import BeachAccess from '~icons/ic/beach-access'
-  import EventAvailable from '~icons/ic/event-available'
-  import RateReview from '~icons/ic/rate-review'
-  import CloseCross from '~icons/ic/round-close'
-  import Euro from '~icons/ic/round-euro'
-  import StatsChart from '~icons/ic/round-query-stats'
-  import SelectAll from '~icons/ic/select-all'
   import type { BlogTag, Post } from './types'
 
   export let posts: Post[]
@@ -26,14 +16,14 @@
     }
   }
   tagCounter.Alle = posts.length
-  const icons: Record<BlogTag, typeof SvelteComponent> = {
-    Alle: SelectAll,
-    Spendenaktionen: Euro,
-    Vorstand: StatsChart,
-    Events: EventAvailable,
-    Erfahrungsberichte: RateReview,
-    Kooperationen: HandsHelping,
-    Treffen: BeachAccess,
+  const icons: Record<BlogTag, string> = {
+    Alle: `ic:select-all`,
+    Spendenaktionen: `ic:round-euro`,
+    Vorstand: `ic:round-query-stats`,
+    Events: `ic:event-available`,
+    Erfahrungsberichte: `ic:rate-review`,
+    Kooperationen: `fa-solid:hands-helping`,
+    Treffen: `ic:beach-access`,
   }
 
   let open = false
@@ -44,13 +34,13 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 <h2>
-  <Tags style="height: 16pt; margin-right: 5pt;" />Tags
+  <Icon icon="fa-solid:tags" style="height: 16pt; margin-right: 5pt;" />Tags
   {#if windowWidth < 750}
     <button on:click={() => (open = !open)} aria-label="Blog Tags öffnen">
       {#if open}
-        <CloseCross {style} />
+        <Icon icon="ic:round-close" {style} />
       {:else}
-        <ChevronExpand {style} />
+        <Icon icon="bi:chevron-expand" {style} />
       {/if}
     </button>
   {/if}

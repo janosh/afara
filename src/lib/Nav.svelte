@@ -1,8 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores'
+  import Icon from '@iconify/svelte'
   import { slide } from 'svelte/transition'
-  import ChevronExpand from '~icons/bi/chevron-expand'
-  import Menu from '~icons/ic/round-menu'
   import type { NavEntry } from './types'
 
   export let links: NavEntry[]
@@ -44,7 +43,7 @@
   aria-label="Navigationsmenü öffnen"
   style:display={mobile ? `` : `none`}
 >
-  <Menu height="2.9ex" style="vertical-align: middle;" />
+  <Icon icon="ic:round-menu" inline />
 </button>
 
 <a
@@ -76,10 +75,7 @@
         >
         {#if subNav}
           <button on:click={setActiveSubNav(idx)} aria-label="Untermenü {title} öffnen">
-            <ChevronExpand
-              height="1em"
-              style="vertical-align: middle; color: var(--green);"
-            />
+            <Icon icon="bi:chevron-expand" inline />
           </button>
         {/if}
         {#if subNav && (activeSubNav === idx || viewWidth > 800)}
@@ -93,8 +89,10 @@
                   on:click={close}
                   data-sveltekit-prefetch
                   aria-current={isCurrent(url)}
-                  href={url}>{title}</a
+                  href={url}
                 >
+                  {title}
+                </a>
               </li>
             {/each}
           </ul>
@@ -109,14 +107,8 @@
     grid-area: nav;
     padding: 0;
   }
-  a,
-  button {
+  nav {
     color: white;
-    border-radius: 50%;
-    transition: background-color 0.4s;
-  }
-  button:hover {
-    background: var(--gray);
   }
   a:hover {
     color: var(--hover-color);
