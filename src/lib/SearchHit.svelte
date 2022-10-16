@@ -13,12 +13,12 @@
 
 <div>
   {#if cover.src}
-    <a data-sveltekit-prefetch href={slug} on:click={() => dispatch(`close`)}>
+    <a href={slug} on:click={() => dispatch(`close`)}>
       <Img {...cover} sizes={[{ w: 150 }]} {imgStyle} />
     </a>
   {/if}
   <h3>
-    <a data-sveltekit-prefetch href={slug} on:click={() => dispatch(`close`)}>
+    <a href={slug} on:click={() => dispatch(`close`)}>
       {@html title}
     </a>
   </h3>

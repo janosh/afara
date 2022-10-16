@@ -1,9 +1,6 @@
-import { error, type PageServerLoad } from '@sveltejs/kit'
-import { fetchPost } from '../../../fetch'
+import { fetch_post } from '../../../fetch'
+import type { PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async ({ params }) => {
-  const post = await fetchPost(params.slug)
-
-  if (post) return { post }
-  throw error(404, `Page not found`)
+export const load: PageServerLoad = ({ params }) => {
+  return { post: fetch_post(params.slug) }
 }

@@ -5,10 +5,9 @@
   import type { PageData } from './$types'
 
   export let data: PageData
-  $: ({ post } = data)
 
-  $: ({ title, body, cover } = post)
-  $: ({ bio, name, photo, url } = post.author)
+  $: ({ title, body, cover, date } = data.post)
+  $: ({ bio, name, photo, url } = data.post.author)
   const style = `height: 18pt; vertical-align: -3pt; padding: 0 3pt;`
 </script>
 
@@ -31,7 +30,7 @@
       {/if}
       am
       <Icon icon="octicon:calendar" {style} />
-      <strong>{new Date(post.date).toLocaleDateString(`de`)}</strong>
+      <strong>{new Date(date).toLocaleDateString(`de`)}</strong>
     </span>
   </section>
   {@html body}
