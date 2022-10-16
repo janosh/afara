@@ -14,7 +14,7 @@
     indices: { Seiten: SearchHit, Posts: SearchHit },
     appId: import.meta.env.VITE_ALGOLIA_APP_ID,
     searchKey: import.meta.env.VITE_ALGOLIA_SEARCH_KEY,
-    loadingStr: `Suche läuft...`,
+    loadingMsg: `Suche läuft...`,
     noResultMsg: (query: string) => `Keine Ergebnisse für '${query}'`,
     resultCounter: (hits: unknown[]) =>
       hits.length > 0 ? `<span>Ergebnisse: ${hits.length}<span>` : ``,

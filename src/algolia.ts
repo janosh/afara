@@ -1,7 +1,7 @@
-import { fetchPages, fetchPosts } from './fetch'
+import { fetch_pages, fetch_posts } from './fetch'
 
 const bodyToPlainText =
-  (fetchFunction: typeof fetchPages | typeof fetchPosts) => async () => {
+  (fetchFunction: typeof fetch_pages | typeof fetch_posts) => async () => {
     const items = await fetchFunction()
     items.forEach((itm) => {
       if (!itm.id) itm.id = itm?.slug || itm?.title
@@ -17,8 +17,8 @@ const bodyToPlainText =
 
 export const algoliaConfig = {
   indices: [
-    { name: `Seiten`, getData: bodyToPlainText(fetchPages) },
-    { name: `Posts`, getData: bodyToPlainText(fetchPosts) },
+    { name: `Seiten`, getData: bodyToPlainText(fetch_pages) },
+    { name: `Posts`, getData: bodyToPlainText(fetch_posts) },
   ],
   settings: {
     attributesToSnippet: [`body:20`],

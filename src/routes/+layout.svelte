@@ -5,11 +5,10 @@
   import type { LayoutData } from './$types'
 
   export let data: LayoutData
-  $: ({ nav, footer, social } = data)
 </script>
 
-<Header {nav} />
+<Header nav={data.nav} />
 <main>
   <slot />
 </main>
-<Footer links={footer.links} {social} />
+<Footer links={data.footer.links} social={data.social} />

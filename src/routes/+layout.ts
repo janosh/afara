@@ -1,11 +1,11 @@
-import type { LayoutLoad } from '@sveltejs/kit'
 import '../app.css'
-import { fetchYaml } from '../fetch'
+import { fetch_yaml } from '../fetch'
+import type { LayoutLoad } from './$types'
 
 export const load: LayoutLoad = async () => {
-  const nav = await fetchYaml(`Nav`)
-  const footer = await fetchYaml(`Footer`)
-  const social = await fetchYaml(`Social`)
+  const nav = await fetch_yaml(`Nav`)
+  const footer = await fetch_yaml(`Footer`)
+  const social = await fetch_yaml(`Social`)
 
   return { nav, footer, social }
 }

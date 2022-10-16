@@ -1,8 +1,9 @@
+import { error as sveltekit_error } from '@sveltejs/kit'
 import yaml from 'js-yaml'
 import type { Page, Post } from './lib/types'
 import marked from './marked'
 
-export async function contentfulFetch(query: string) {
+export async function contentful_fetch(query: string) {
   const token = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN
   const id = import.meta.env.VITE_CONTENTFUL_SPACE_ID
 
@@ -21,10 +22,12 @@ export async function contentfulFetch(query: string) {
   const { data, error } = await response.json()
 
   if (error) throw error
+  if (!data) throw sveltekit_error(404, `No data found`)
+
   return data
 }
 
-export async function base64Thumbnail(
+export async function base64_thumbnail(
   url: string,
   options: { type?: string; w?: number; h?: number } = {}
 ): Promise<string> {
@@ -48,7 +51,7 @@ export async function base64Thumbnail(
   }
 }
 
-function renderBody(itm: Page | Post) {
+function render_body(itm: Page | Post) {
   if (!itm?.body) return itm
 
   itm.body = marked(itm.body) // generate HTML
@@ -57,7 +60,7 @@ function renderBody(itm: Page | Post) {
   return itm
 }
 
-const coverFragment = `
+const cover_fragment = `
   cover {
     src: url
     alt: description
@@ -67,51 +70,51 @@ const coverFragment = `
   }
 `
 
-const pageFragment = `
+const page_fragment = `
   items {
     title
     slug
     body
-    ${coverFragment}
+    ${cover_fragment}
     sys {
       publishedAt
     }
   }
 `
 
-const pageQuery = (slug: string) => `{
+const page_query = (slug: string) => `{
   pages: pageCollection(where: {slug_in: ["${slug}", "/${slug}"]}) {
-    ${pageFragment}
+    ${page_fragment}
   }
 }`
 
-const pagesQuery = `{
+const pages_query = `{
   pages: pageCollection {
-    ${pageFragment}
+    ${page_fragment}
   }
 }`
 
-export async function fetchPage(slug: string): Promise<Page> {
+export async function fetch_page(slug: string): Promise<Page> {
   if (!slug) throw `fetchPage requires a slug, got '${slug}'`
-  const data = await contentfulFetch(pageQuery(slug))
+  const data = await contentful_fetch(page_query(slug))
   const page = data?.pages?.items[0]
   if (page?.cover?.src)
-    page.cover.base64 = await base64Thumbnail(page?.cover?.src)
-  return renderBody(page)
+    page.cover.base64 = await base64_thumbnail(page?.cover?.src)
+  return render_body(page)
 }
 
-export async function fetchPages(): Promise<Page[]> {
-  const data = await contentfulFetch(pagesQuery)
-  return data?.pages?.items?.map(renderBody)
+export async function fetch_pages(): Promise<Page[]> {
+  const data = await contentful_fetch(pages_query)
+  return data?.pages?.items?.map(render_body)
 }
 
-const postFragment = `
+const post_fragment = `
   items {
     title
     slug
     date
     body
-    ${coverFragment}
+    ${cover_fragment}
     tags
     author {
       name
@@ -126,47 +129,47 @@ const postFragment = `
   }
 `
 
-const postQuery = (slug: string) => `{
+const post_query = (slug: string) => `{
   posts: postCollection(order: date_DESC, where: {slug_in: ["${slug}", "/${slug}"]}) {
-    ${postFragment}
+    ${post_fragment}
   }
 }`
 
-const postsQuery = `{
+const posts_query = `{
   posts: postCollection(order: date_DESC) {
-    ${postFragment}
+    ${post_fragment}
   }
 }`
 
-async function processPost(post: Post) {
-  renderBody(post)
+async function process_post(post: Post) {
+  render_body(post)
 
   post.slug = `/blog/${post.slug}`
 
-  post.cover.base64 = await base64Thumbnail(post.cover.src)
+  post.cover.base64 = await base64_thumbnail(post.cover.src)
   return post
 }
 
-export async function fetchPost(slug: string): Promise<Post | null> {
+export async function fetch_post(slug: string): Promise<Post | null> {
   if (!slug) throw `fetchPost requires a slug, got '${slug}'`
 
-  const data = await contentfulFetch(postQuery(slug))
+  const data = await contentful_fetch(post_query(slug))
   const post = data?.posts?.items[0]
 
   if (!post) return null
 
-  return await processPost(post)
+  return await process_post(post)
 }
 
-export async function fetchPosts(): Promise<Post[]> {
-  const data = await contentfulFetch(postsQuery)
+export async function fetch_posts(): Promise<Post[]> {
+  const data = await contentful_fetch(posts_query)
   const posts = data?.posts?.items
-  return await Promise.all(posts.map(processPost))
+  return await Promise.all(posts.map(process_post))
 }
 
-export async function fetchYaml(title: string) {
+export async function fetch_yaml(title: string) {
   if (!title) throw `fetchYaml requires a title, got '${title}'`
-  const { yml } = await contentfulFetch(`{
+  const { yml } = await contentful_fetch(`{
     yml: yamlCollection(where: {title: "${title}"}) {
       items {
         data

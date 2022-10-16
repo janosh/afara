@@ -1,11 +1,6 @@
-import type { PageServerLoad } from '@sveltejs/kit'
-import { error } from '@sveltejs/kit'
-import { fetchPosts, fetchYaml } from '../../fetch'
+import { fetch_posts, fetch_yaml } from '../../fetch'
+import type { PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async () => {
-  const posts = await fetchPosts()
-  const social = await fetchYaml(`Social`)
-
-  if (posts && social) return { posts, social }
-  throw error(404, `Page not found`)
+export const load: PageServerLoad = () => {
+  return { posts: fetch_posts(), social: fetch_yaml(`Social`) }
 }

@@ -46,14 +46,7 @@
   <Icon icon="ic:round-menu" inline />
 </button>
 
-<a
-  on:click={close}
-  class="logo"
-  class:opaque
-  href="/"
-  data-sveltekit-prefetch
-  aria-current={isCurrent(`/`)}
->
+<a on:click={close} class="logo" class:opaque href="/" aria-current={isCurrent(`/`)}>
   <img src="/favicon.svg" alt="Logo" height="50" width="50" />
 </a>
 
@@ -65,14 +58,7 @@
         on:mouseleave={mobile ? null : setActiveSubNav(-1)}
         class:hover={activeSubNav === idx}
       >
-        <a
-          on:click={close}
-          data-sveltekit-prefetch
-          aria-current={isCurrent(url)}
-          href={url}
-        >
-          {title}</a
-        >
+        <a on:click={close} aria-current={isCurrent(url)} href={url}> {title}</a>
         {#if subNav}
           <button on:click={setActiveSubNav(idx)} aria-label="Untermenü {title} öffnen">
             <Icon icon="bi:chevron-expand" inline />
@@ -85,12 +71,7 @@
           >
             {#each subNav as { title, url, span }}
               <li class:span>
-                <a
-                  on:click={close}
-                  data-sveltekit-prefetch
-                  aria-current={isCurrent(url)}
-                  href={url}
-                >
+                <a on:click={close} aria-current={isCurrent(url)} href={url}>
                   {title}
                 </a>
               </li>

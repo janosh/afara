@@ -3,7 +3,6 @@
   import type { PageData } from './$types'
 
   export let data: PageData
-  $: ({ page, yaml } = data)
 
   let windowWidth: number
 
@@ -14,7 +13,7 @@
 
 <h1>AFARA e.V.</h1>
 <div class="grid">
-  {#each yaml.images.slice(0, windowWidth > 800 ? 9 : windowWidth < 500 ? 3 : 6) as img, idx}
+  {#each data.yaml.images.slice(0, windowWidth > 800 ? 9 : windowWidth < 500 ? 3 : 6) as img, idx}
     <Img
       {...img}
       sizes={[{ w: 400 }, { w: 800 }]}
@@ -22,7 +21,7 @@
       loading="eager"
     />
   {/each}
-  {#each Object.values(yaml.text) as text, idx}
+  {#each Object.values(data.yaml.text) as text, idx}
     <div style="grid-area: txt{idx + 1}; background: {colors[idx]};">
       <span>{text}</span>
     </div>
@@ -32,7 +31,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 <article>
-  {@html page.body}
+  {@html data.page.body}
 </article>
 
 <style>

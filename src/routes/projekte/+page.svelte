@@ -3,12 +3,11 @@
   import type { PageData } from './$types'
 
   export let data: PageData
-  $: ({ projects } = data)
 </script>
 
 <h1>Unsere Projekte</h1>
 <ul>
-  {#each projects as { title, slug, img }}
+  {#each data.projects as { title, slug, img }}
     <li>
       <a href={slug}>
         <Img src={img} alt={title} imgStyle="border-radius: 4pt; height: 16em;" />

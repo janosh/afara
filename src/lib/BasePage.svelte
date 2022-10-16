@@ -7,7 +7,7 @@
 
   $: ({ title, slug, date, cover, body, yaml, sys } = page)
 
-  $: localeDate = new Date(date || sys.publishedAt).toLocaleDateString(`de`)
+  $: pretty_date = new Date(date || sys.publishedAt).toLocaleString(`de`)
 
   const style = `height: 3ex; vertical-align: bottom; padding-right: 4pt;`
 </script>
@@ -32,7 +32,7 @@
   {#if sys?.publishedAt && !slug.includes(`blog`)}
     <time>
       <Icon icon="ic:update" inline {style} />Zuletzt bearbeitet:
-      {localeDate}
+      {pretty_date}
     </time>
     <address>
       <a href="mailto:it@afara.foundation?subject=Feedback zu Seite: {title}">
