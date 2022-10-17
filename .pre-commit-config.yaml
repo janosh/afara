@@ -18,6 +18,7 @@ repos:
     hooks:
       - id: prettier
         args: [--write] # edit files in-place
+        exclude: pnpm-lock.yaml
         additional_dependencies:
           - prettier
           - prettier-plugin-svelte
