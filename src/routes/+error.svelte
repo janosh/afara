@@ -1,42 +1,36 @@
 <script lang="ts">
-  import { dev } from '$app/environment'
   import { page } from '$app/stores'
+  import { name } from '../../package.json'
 </script>
 
 <svelte:head>
-  <title>{$page.status}</title>
+  <title>Fehler {$page.status} &bull; {name}</title>
 </svelte:head>
 
 <div>
-  <h1>Fehler {$page.status}</h1>
-
-  {#if $page.status === 404}
+  <h1>Fehler {$page.status}: {$page.error?.message}</h1>
+  {#if $page.status >= 500}
     <p>
-      😅 Ooops! Diese Seite konnte nicht gefunden.
-      <a href="/">Zurück zur Startseite</a>.
+      When neu laden nicht hilft, schreib uns bitte eine E-Mail mit dem Fehlercode und
+      evtl. relevanten Informationen an
+      <a href="mailto:it@{name}" target="_blank" rel="noreferrer">it@{name}</a>. Danke! 🙏
     </p>
   {/if}
 
-  {#if dev && $page.error?.stack}
-    <h2>Stack Trace</h2>
-    <pre>{$page.error.stack}</pre>
-  {/if}
+  <p>Back to <a href=".">landing page</a>.</p>
 </div>
 
 <style>
   div {
+    font-size: 1.2em;
     max-width: 45em;
     padding: 5em 3em 1em;
     margin: auto;
+    text-align: center;
   }
   p {
     text-align: center;
-  }
-  pre {
-    overflow: scroll;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    padding: 5pt 1em;
-    border-radius: 3pt;
+    max-width: 35em;
+    margin: auto;
   }
 </style>
