@@ -32,9 +32,10 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: |
-          pnpm install
-          pnpm build
+        run: pnpm install
+
+      - name: Build site
+        run: pnpm build
         env:
           VITE_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_CONTENTFUL_SPACE_ID }}
           VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VITE_CONTENTFUL_ACCESS_TOKEN }}
@@ -53,5 +54,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v1
