@@ -3,7 +3,7 @@ ci:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
       - id: check-case-conflict
       - id: check-symlinks
@@ -14,7 +14,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.0
+    rev: v3.0.0-alpha.4
     hooks:
       - id: prettier
         args: [--write] # edit files in-place
@@ -25,7 +25,7 @@ repos:
           - svelte
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.24.0
+    rev: v8.31.0
     hooks:
       - id: eslint
         types: [file]
