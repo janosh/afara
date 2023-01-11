@@ -8,7 +8,7 @@ export default {
   kit: {
     adapter: adapter(),
     prerender: {
-      entries: [`/`, `/geschichte`, `/vorort`],
+      entries: [`/`, `/geschichte`, `/vorort`, `/patenschaften-junger-muetter`],
     },
   },
 }

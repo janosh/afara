@@ -16,8 +16,8 @@
   <h1>Fehler {String($page.status).replace(`0`, `😵`)}: {$page.error?.message}</h1>
   {#if $page.status >= 500}
     <p>
-      When neu laden nicht hilft, schreib uns bitte eine E-Mail mit dem Fehlercode und
-      evtl. relevanten Informationen an
+      Wenn neu laden nicht hilft, schreib uns bitte eine E-Mail mit dem Fehlercode, deinem
+      Betriebssystem und deinem Browser an
       <a href="mailto:it@{name}" target="_blank" rel="noreferrer">it@{name}</a>. Danke! 🙏
     </p>
   {/if}
@@ -40,6 +40,9 @@
     max-width: 45em;
     padding: 5em 3em 1em;
     margin: auto;
+    text-align: center;
+  }
+  div p {
     text-align: center;
   }
 </style>

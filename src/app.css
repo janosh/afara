@@ -15,8 +15,8 @@
   --gray: #2b363f;
   --dark-gray: #1d242a;
 
-  --link-color: vars(--blue);
-  --hover-color: vars(--light-blue);
+  --link-color: var(--blue);
+  --hover-color: var(--light-blue);
 }
 
 body {

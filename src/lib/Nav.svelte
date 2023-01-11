@@ -115,6 +115,10 @@
   nav {
     overflow: auto;
   }
+  nav a,
+  nav button {
+    color: white;
+  }
   /* mobile styles */
   nav.mobile {
     position: fixed;
