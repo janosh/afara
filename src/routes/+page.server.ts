@@ -1,4 +1,4 @@
-import { fetch_page, fetch_yaml } from '../fetch'
+import { fetch_page, fetch_yaml } from '$lib/fetch'
 import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = () => {

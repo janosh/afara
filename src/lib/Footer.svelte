@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '@iconify/svelte'
-  import Social from './Social.svelte'
+  import { Social } from '.'
   import type { SocialNetwork } from './types'
 
   export let social: Record<SocialNetwork, string>

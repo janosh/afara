@@ -1,6 +1,5 @@
 <script lang="ts">
-  import BasePage from '$lib/BasePage.svelte'
-  import MapEmbed from '$lib/MapEmbed.svelte'
+  import { BasePage, MapEmbed } from '$lib'
   import type { PageData } from './$types'
 
   export let data: PageData

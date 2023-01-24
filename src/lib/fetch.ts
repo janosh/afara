@@ -1,7 +1,7 @@
 import { error as sveltekit_error } from '@sveltejs/kit'
 import yaml from 'js-yaml'
-import type { Page, Post } from './lib/types'
 import marked from './marked'
+import type { Page, Post } from './types'
 
 export async function contentful_fetch(query: string) {
   const token = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN

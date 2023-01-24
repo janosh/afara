@@ -8,8 +8,6 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [publish-event]
-  schedule:
-    - cron: 00 00 * * *
 
 # set permissions of GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:

@@ -1,6 +1,6 @@
 import { dev } from '$app/environment'
+import { algoliaConfig } from '$lib/algolia'
 import { indexAlgolia } from 'svelte-algolia/server-side'
-import { algoliaConfig } from './algolia'
 
 const appId = import.meta.env.VITE_ALGOLIA_APP_ID as string
 const apiKey = import.meta.env.VITE_ALGOLIA_ADMIN_KEY as string

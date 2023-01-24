@@ -7,8 +7,13 @@ export default {
 
   kit: {
     adapter: adapter(),
+
     prerender: {
       entries: [`/`, `/geschichte`, `/vorort`, `/patenschaften-junger-muetter`],
+    },
+
+    alias: {
+      $root: `.`,
     },
   },
 }
