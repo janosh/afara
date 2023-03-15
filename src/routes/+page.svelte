@@ -1,8 +1,7 @@
 <script lang="ts">
   import { Img } from '$lib'
-  import type { PageData } from './$types'
 
-  export let data: PageData
+  export let data
 
   let windowWidth: number
 

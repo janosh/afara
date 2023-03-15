@@ -1,4 +1,4 @@
-import { error as sveltekit_error } from '@sveltejs/kit'
+import { error as kit_error } from '@sveltejs/kit'
 import yaml from 'js-yaml'
 import marked from './marked'
 import type { Page, Post } from './types'
@@ -22,7 +22,7 @@ export async function contentful_fetch(query: string) {
   const { data, error } = await response.json()
 
   if (error) throw error
-  if (!data) throw sveltekit_error(404, `No data found`)
+  if (!data) throw kit_error(404, `No data found`)
 
   return data
 }

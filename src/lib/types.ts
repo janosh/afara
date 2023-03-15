@@ -38,7 +38,7 @@ export const blogTags = [
   `Vorstand`,
 ] as const
 
-export type BlogTag = typeof blogTags[number]
+export type BlogTag = (typeof blogTags)[number]
 
 export type Post = Page & {
   author: Author
@@ -67,4 +67,4 @@ export const SocialNetworks = [
   `YouTube`,
 ] as const
 
-export type SocialNetwork = typeof SocialNetworks[number]
+export type SocialNetwork = (typeof SocialNetworks)[number]
