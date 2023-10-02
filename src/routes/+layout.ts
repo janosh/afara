@@ -1,5 +1,4 @@
 import { fetch_yaml } from '$lib/fetch'
-import type { LayoutLoad } from './$types'
 
 export const load = async () => {
   const nav = await fetch_yaml(`Nav`)
