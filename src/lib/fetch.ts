@@ -29,7 +29,7 @@ export async function contentful_fetch(query: string) {
 
 export async function base64_thumbnail(
   url: string,
-  options: { type?: string; w?: number; h?: number } = {}
+  options: { type?: string; w?: number; h?: number } = {},
 ): Promise<string> {
   const { type = `jpg`, w = 10, h = 10 } = options
 
